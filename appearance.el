@@ -26,8 +26,8 @@
 (setq column-number-mode t)
 
 ;;; Display time in the mode-line
-(display-time-mode t)
 (setq display-time-24hr-format t)
+(display-time-mode 1)
 
 
 ;; (setq visible-bell t
