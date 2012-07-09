@@ -39,6 +39,7 @@
 (require 'setup-slime)
 (require 'setup-paredit)
 (require 'setup-redshank)
+(require 'setup-package)
 
 
 ;;; HOOKS

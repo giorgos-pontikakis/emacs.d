@@ -29,9 +29,6 @@
 ;; Move files to trash when deleting
 (setq delete-by-moving-to-trash t)
 
-;; Use shift to mark things
-;; (setq shift-select-mode t)
-
 ;; Transparently open compressed files
 (auto-compression-mode t)
 
@@ -72,8 +69,12 @@
 ;;; ------------------------------------------------------------
 
 ;;; Enable CUA mode for rectangle editing
-;; (cua-mode t)
-;; (setq cua-enable-cua-keys nil)
+(cua-mode t)
+(setq cua-enable-cua-keys nil)
+
+;; Restore shift-select-mode to T, after loading CUA mode which sets
+;; this to NIL
+(setq shift-select-mode t)
 
 ;; Show active region
 (transient-mark-mode 1)
