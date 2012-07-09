@@ -36,6 +36,7 @@
 (require 'setup-paredit)
 (require 'setup-redshank)
 (require 'setup-misc)
+(require 'setup-package)
 
 
 ;;; HOOKS
