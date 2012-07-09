@@ -59,6 +59,11 @@
 (add-hook 'slime-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 
+;; Emacs server
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 
 ;; (lambda ()
 ;;   (paredit-mode +1)
@@ -138,11 +143,6 @@
 ;; (require 'appearance)
 ;; (require 'misc)
 ;; (when is-mac (require 'mac))
-
-;; ;; Emacs server
-;; (require 'server)
-;; (unless (server-running-p)
-;;   (server-start))
 
 ;; ;; Run at full power please
 ;; (put 'downcase-region 'disabled nil)
