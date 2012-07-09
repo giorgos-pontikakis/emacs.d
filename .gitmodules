@@ -1,0 +1,3 @@
+[submodule "site-lisp/redshank"]
+	path = site-lisp/redshank
+	url = http://www.foldr.org/~michaelw/projects/redshank.git
