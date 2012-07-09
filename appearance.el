@@ -15,7 +15,7 @@
 (when window-system
   (menu-bar-mode -1)
   (scroll-bar-mode -1)
-  (setq frame-title-format '(buffer-file-name "%f" ("%b")))
+  (setq frame-title-format '(buffer-file-name "emacs: %f" ("%b")))
   (tool-bar-mode -1)
   (tooltip-mode -1)
   (blink-cursor-mode t)
@@ -28,8 +28,6 @@
 ;;; Display time in the mode-line
 (display-time-mode t)
 (setq display-time-24hr-format t)
-
-
 
 
 ;; (setq visible-bell t
@@ -67,7 +65,6 @@
   (set-face-attribute 'default nil
                       :background "black"
                       :foreground "white")
-  (set-face-attribute 'cursor nil :background "white")
   (set-face-attribute 'show-paren-match-face nil
                       :background 'unspecified
                       :foreground "red"
@@ -82,7 +79,7 @@
   (set-face-attribute 'font-lock-type-face nil :foreground "plum1")
   (set-face-attribute 'font-lock-variable-name-face nil :foreground "PaleVioletRed1")
 
-  (set-face-attribute 'fringe nil :background "grey8" :foreground "grey 20")
+  ;;(set-face-attribute 'fringe nil :background "grey8" :foreground "grey 20")
   (set-face-attribute 'header-line nil :inherit 'mode-line :background "grey" :foreground "black")
   (set-face-attribute 'region nil :background "grey50" :foreground "black"))
 
@@ -110,7 +107,14 @@
 
 ;;; Set colors and font
 
-(add-to-list 'default-frame-alist '(font . "6x13"))
+(setq default-frame-alist
+      '((width . 100) (height . 60)
+        (cursor-type . box)
+        (foreground-color . "white")
+        (background-color . "black")
+        (vertical-scroll-bars . nil)
+        (font . "6x13")))
+
 ;; (add-to-list 'default-frame-alist '(font . "-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-7"))
 (gnp-dark-colors)
 

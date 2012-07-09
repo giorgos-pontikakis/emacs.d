@@ -60,9 +60,9 @@
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 
 ;; Emacs server
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+;; (require 'server)
+;; (unless (server-running-p)
+;;   (server-start))
 
 
 ;; (lambda ()

@@ -182,7 +182,7 @@ As a special case, if the point is at the end of a list, simply insert
 
 ;;; These should be useful in Windows,
 ;;; where there is no xmodmap equivalent
-(when (string-equal window-system "x")
+(when (string-equal window-system "w32")
   (keyboard-translate ?\( ?\[)
   (keyboard-translate ?\[ ?\()
   (keyboard-translate ?\) ?\])

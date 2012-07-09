@@ -5,6 +5,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(cua-enable-cursor-indications t)
+ '(cua-mode t nil (cua-base))
+ '(cua-normal-cursor-color "snow")
+ '(cua-overwrite-cursor-color "red")
+ '(cua-read-only-cursor-color "yellow")
  '(ido-auto-merge-work-directories-length -1)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-case-fold t)

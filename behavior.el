@@ -41,7 +41,7 @@
 ;;; Searches and matches should ignore case.
 (setq case-fold-search t)
 
-;; Sentences do not need double spaces to end. Period.
+;; Sentences do not need double spaces to end.
 (set-default 'sentence-end-double-space nil)
 
 
@@ -61,32 +61,6 @@
 (setq current-language-environment "UTF-8")
 (setq default-input-method "greek")
 (prefer-coding-system 'utf-8)
-
-
-
-;;; ------------------------------------------------------------
-;;; REGION
-;;; ------------------------------------------------------------
-
-;;; Enable CUA mode for rectangle editing
-(cua-mode t)
-(setq cua-enable-cua-keys nil)
-
-;; Restore shift-select-mode to T, after loading CUA mode which sets
-;; this to NIL
-(setq shift-select-mode t)
-
-;; Show active region
-(transient-mark-mode 1)
-(make-variable-buffer-local 'transient-mark-mode)
-(put 'transient-mark-mode 'permanent-local t)
-(setq-default transient-mark-mode t)
-
-;; Remove text in active region if inserting text
-(delete-selection-mode 1)
-
-;; Lines should be 80 characters wide, not 72
-(setq fill-column 80)
 
 
 
@@ -126,6 +100,7 @@ read-only."
   (barf-if-buffer-read-only))
 
 
+
 ;;; ------------------------------------------------------------
 ;;; MINIBUFFER
 ;;; ------------------------------------------------------------
@@ -159,6 +134,9 @@ read-only."
 (put 'downcase-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
 
+;; Lines should be 80 characters wide, not 72
+(setq fill-column 80)
+
 
 
 ;;; ------------------------------------------------------------
@@ -175,10 +153,6 @@ read-only."
 ;; (setq undo-tree-mode-lighter "")
 ;; (require 'undo-tree)
 ;; (global-undo-tree-mode)
-
-;; ;; Add marmalade to package repos
-;; (eval-after-load "package"
-;;   '(add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/")))
 
 
 (provide 'behavior)

@@ -1,25 +1,25 @@
-;;; Using cursor color to indicate some modes. If you sometimes
-;;; find yourself inadvertently overwriting some text because you
-;;; are in overwrite mode but you didn't expect so, this might prove
-;;; as useful to you as it is for me. It changes cursor color to
-;;; indicate read-only, insert and overwrite modes:
-(setq set-cursor-color-color "")
-(setq set-cursor-color-buffer "")
-(defun set-cursor-color-according-to-mode ()
-  "change cursor color according to some minor modes."
-  ;;set-cursor-color is somewhat costly, so we only call it when
-  ;;needed:
-  (let ((color
-         (if buffer-read-only (face-foreground 'default)
-           (if overwrite-mode
-               "red"
-             (face-foreground 'default)))))
-    (unless (and
-             (string= color set-cursor-color-color)
-             (string= (buffer-name) set-cursor-color-buffer))
-      (set-cursor-color (setq set-cursor-color-color color))
-      (setq set-cursor-color-buffer (buffer-name)))))
-(add-hook 'post-command-hook 'set-cursor-color-according-to-mode)
+;; ;;; Using cursor color to indicate some modes. If you sometimes
+;; ;;; find yourself inadvertently overwriting some text because you
+;; ;;; are in overwrite mode but you didn't expect so, this might prove
+;; ;;; as useful to you as it is for me. It changes cursor color to
+;; ;;; indicate read-only, insert and overwrite modes:
+;; (setq set-cursor-color-color "")
+;; (setq set-cursor-color-buffer "")
+;; (defun set-cursor-color-according-to-mode ()
+;;   "change cursor color according to some minor modes."
+;;   ;;set-cursor-color is somewhat costly, so we only call it when
+;;   ;;needed:
+;;   (let ((color
+;;          (if buffer-read-only (face-foreground 'default)
+;;            (if overwrite-mode
+;;                "red"
+;;              (face-foreground 'default)))))
+;;     (unless (and
+;;              (string= color set-cursor-color-color)
+;;              (string= (buffer-name) set-cursor-color-buffer))
+;;       (set-cursor-color (setq set-cursor-color-color color))
+;;       (setq set-cursor-color-buffer (buffer-name)))))
+;; (add-hook 'post-command-hook 'set-cursor-color-according-to-mode)
 
 
 ;;; Extend font-lock for lisp mode
