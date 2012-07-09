@@ -180,4 +180,12 @@ As a special case, if the point is at the end of a list, simply insert
 (modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
 (define-key global-map (kbd "M-[") 'bracket-wrap-sexp)
 
+;;; These should be useful in Windows,
+;;; where there is no xmodmap equivalent
+(when (string-equal window-system "x")
+  (keyboard-translate ?\( ?\[)
+  (keyboard-translate ?\[ ?\()
+  (keyboard-translate ?\) ?\])
+  (keyboard-translate ?\] ?\)))
+
 (provide 'key-bindings)

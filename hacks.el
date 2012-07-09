@@ -22,6 +22,11 @@
 (add-hook 'post-command-hook 'set-cursor-color-according-to-mode)
 
 
+;;; Extend font-lock for lisp mode
+(font-lock-add-keywords 'lisp-mode
+                        '(("(\\(defpage\\(\\s_\\|\\w\\)*\\)"
+                           1 font-lock-keyword-face)))
+
 ;;; Better indentation of html keywords (for CL-WHO)
 (defun nm-cl-indent (symbol indent)
   "Set the indentation of SYMBOL to INDENT."
