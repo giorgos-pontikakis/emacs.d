@@ -30,36 +30,6 @@
 (display-time-mode 1)
 
 
-;; (setq visible-bell t
-;;       font-lock-maximum-decoration t
-;;       color-theme-is-global t
-;;       truncate-partial-width-windows nil)
-
-;; (set-face-background 'region "#464740")
-
-;; ;; Highlight current line
-;; (global-hl-line-mode 1)
-
-;; ;; Customize background color of lighlighted line
-;; (set-face-background 'hl-line "#222222")
-
-;; ;; Highlight in yasnippet
-;; (set-face-background 'yas/field-highlight-face "#333399")
-
-;; (set-face-foreground 'font-lock-warning-face "#ff6666")
-
-;; ;; org-mode colors
-;; (setq org-todo-keyword-faces
-;;       '(
-;;         ("INPR" . (:foreground "yellow" :weight bold))
-;;         ("DONE" . (:foreground "green" :weight bold))
-;;         ("IMPEDED" . (:foreground "red" :weight bold))
-;;         ))
-
-
-;; ;; Make zooming affect frame instead of buffers
-;; (require 'zoom-frm)
-
 (defun gnp-dark-colors ()
   (interactive)
   (set-face-attribute 'default nil
@@ -105,8 +75,7 @@
   (set-face-attribute 'region nil :background "gray" :foreground "black"))
 
 
-;;; Set colors and font
-
+;;; Set default frame properties
 (setq default-frame-alist
       '((width . 100) (height . 60)
         (cursor-type . box)

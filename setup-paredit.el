@@ -39,6 +39,8 @@
   ;; Extra to paredit defaults for forward/backward (C-M-f and C-M-b)
   (define-key paredit-mode-map (kbd "M-<left>") 'paredit-backward)
   (define-key paredit-mode-map (kbd "M-<right>") 'paredit-forward)
+  (define-key paredit-mode-map (kbd "C-M-<left>") 'beginning-of-defun)
+  (define-key paredit-mode-map (kbd "C-M-<right>") 'end-of-defun)
   (define-key global-map (kbd "M-S-<left>") 'backward-sexp) ;; revert to native sexp commands
   (define-key global-map (kbd "M-S-<right>") 'forward-sexp) ;; so that shift-mode-selection works
 

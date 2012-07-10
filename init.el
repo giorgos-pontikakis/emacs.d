@@ -66,25 +66,12 @@
   (server-start))
 
 
-;; (lambda ()
-;;   (paredit-mode +1)
-;;   ;; (gnp-slime-key-bindings)
-;;   ;; (gnp-paredit-key-bindings)
-;;   ;; (gnp-repl-key-bindings)
-;;   (override-slime-repl-bindings-with-paredit))
-
 
 
 ;; ;; Save point position between sessions
 ;; (require 'saveplace)
 ;; (setq-default save-place t)
 ;; (setq save-place-file (expand-file-name ".places" dotfiles-dir))
-
-;; ;; Lets start with a smattering of sanity
-;; (require 'sane-defaults)
-
-;; ;; Are we on a mac?
-;; (setq is-mac (equal system-type 'darwin))
 
 ;; ;; Setup extensions
 ;; (require 'setup-ido)
