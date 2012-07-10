@@ -1,27 +1,5 @@
 ;;; GENERAL KEY BINDINGS
 
-(defun ensure-mark ()
-  ;; make sure mark is active
-  ;; test if it is active, if it isn't, set it and activate it
-  (if mark-active
-      nil
-    (set-mark-command nil)))
-
-(defun backward-sexp-mark ()
-  (interactive)
-  (ensure-mark)
-  (backward-sexp))
-
-(defun forward-sexp-mark ()
-  (interactive)
-  (ensure-mark)
-  (forward-sexp))
-
-(defun backward-kill-sexp ()
-  (interactive)
-  (backward-sexp)
-  (kill-sexp))
-
 (defun backward-up-list-mark ()
   (interactive)
   (backward-up-list)
@@ -83,11 +61,11 @@
   (define-key global-map (kbd "M-<right>") 'forward-sexp)
   (define-key global-map (kbd "C-M-<left>") 'backward-sentence)
   (define-key global-map (kbd "C-M-<right>") 'forward-sentence)
-  (define-key global-map (kbd "M-S-<left>") 'backward-sexp-mark)
-  (define-key global-map (kbd "M-S-<right>") 'forward-sexp-mark)
 
   (define-key global-map (kbd "M-<up>") 'backward-up-list)
   (define-key global-map (kbd "M-<down>") 'down-list)
+  (define-key global-map (kbd "C-M-<up>") 'backward-paragraph)
+  (define-key global-map (kbd "C-M-<down>") 'forward-paragraph)
 
   (define-key global-map (kbd "S-M-<up>") 'backward-up-list-mark)
 
