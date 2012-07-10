@@ -20,6 +20,7 @@
  '(ido-enable-last-directory-history t)
  '(ido-enable-tramp-completion nil)
  '(ido-enter-matching-directory (quote first))
+ '(ido-everywhere t)
  '(ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" ".lx32fsl$" ".fasl$")))
  '(ido-max-window-height 3)
  '(ido-mode (quote both) nil (ido))

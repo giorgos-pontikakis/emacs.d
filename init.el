@@ -30,7 +30,6 @@
 (require 'libraries)
 (require 'key-bindings)
 (require 'hacks)
-(require 'setup-ido)
 (require 'setup-apache-mode)
 (require 'setup-slime)
 (require 'setup-paredit)
@@ -74,7 +73,6 @@
 ;; (setq save-place-file (expand-file-name ".places" dotfiles-dir))
 
 ;; ;; Setup extensions
-;; (require 'setup-ido)
 ;; (require 'setup-yasnippet)
 ;; (require 'setup-dired)
 ;; (require 'setup-magit)
