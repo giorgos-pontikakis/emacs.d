@@ -81,6 +81,8 @@
 
   (define-key global-map (kbd "M-<left>") 'backward-sexp)
   (define-key global-map (kbd "M-<right>") 'forward-sexp)
+  (define-key global-map (kbd "C-M-<left>") 'backward-sentence)
+  (define-key global-map (kbd "C-M-<right>") 'forward-sentence)
   (define-key global-map (kbd "M-S-<left>") 'backward-sexp-mark)
   (define-key global-map (kbd "M-S-<right>") 'forward-sexp-mark)
 

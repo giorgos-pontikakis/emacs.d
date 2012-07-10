@@ -36,14 +36,12 @@
   (define-key paredit-mode-map (kbd "C-M-<backspace>") 'paredit-splice-sexp-killing-backward)
   (define-key paredit-mode-map (kbd "C-M-<delete>") 'paredit-splice-sexp-killing-forward)
 
-  ;; Extra to paredit defaults C-M-f and C-M-b
+  ;; Extra to paredit defaults for forward/backward (C-M-f and C-M-b)
   (define-key paredit-mode-map (kbd "M-<left>") 'paredit-backward)
   (define-key paredit-mode-map (kbd "M-<right>") 'paredit-forward)
-  (define-key paredit-mode-map (kbd "C-M-<left>") 'paredit-backward)
-  (define-key paredit-mode-map (kbd "C-M-<right>") 'paredit-forward-down*)
 
   ;; Take back M-<down> and M-<up>
-  ;; Extra to paredit defaults C-M-u and C-M-d,, rely on C-M-( and C-M-) for barfage
+  ;; Extra to paredit defaults C-M-u and C-M-d, rely on C-M-( and C-M-) for barfage
   (define-key paredit-mode-map (kbd "M-<up>") 'paredit-backward-up)
   (define-key paredit-mode-map (kbd "M-<down>") 'paredit-forward-down)
   (define-key paredit-mode-map (kbd "C-M-<up>") 'paredit-forward-up)
@@ -55,7 +53,7 @@
   (define-key paredit-mode-map (kbd "C-<right>") 'forward-word)
   (define-key paredit-mode-map (kbd "C-<left>") 'backward-word)
 
-  ;; Override paredit defaults for barfage
+  ;; Extra to paredit defaults for barfage (C-{ and C-})
   (define-key paredit-mode-map (kbd "C-M-(") 'paredit-backward-barf-sexp)
   (define-key paredit-mode-map (kbd "C-M-)") 'paredit-forward-barf-sexp))
 
