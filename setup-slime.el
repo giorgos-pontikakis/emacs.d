@@ -1,11 +1,9 @@
 ;;; Slime core functionality
-;;; (add-to-list 'load-path "/home/gnp/lib/emacs/slime")
 (setq slime-lisp-implementations
       `((sbcl ("/usr/bin/sbcl"))
         (slime ("/usr/bin/sbcl" "--core" "/home/gnp/sbcl-slime.core"))
         (web ("/usr/bin/sbcl" "--core" "/home/gnp/sbcl-web.core"))
         (clisp ("/usr/bin/clisp"))))
-
 
 ;;; slime via quicklisp
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
@@ -19,28 +17,30 @@
                slime-asdf
                slime-banner
                slime-indentation
-               slime-xref-browser))
-(setq slime-complete-symbol*-fancy t)
-(setq slime-display-compilation-output nil)
-(setq slime-enable-evaluate-in-emacs t)
-(setq slime-fuzzy-completion-in-place nil)
-(setq slime-kill-without-query-p t)
-(setq slime-truncate-lines t)
-(setq slime-multiprocessing t)
-(setq slime-net-coding-system 'utf-8-unix)
-(setq slime-startup-animation nil)
-(setq slime-complete-symbol-function 'slime-fuzzy-complete-symbol)
+               slime-xref-browser
+               slime-compiler-notes-tree
+               slime-mdot-fu))
 
+(setq slime-complete-symbol*-fancy t
+      slime-display-compilation-output nil
+      slime-enable-evaluate-in-emacs t
+      slime-fuzzy-completion-in-place nil
+      slime-kill-without-query-p t
+      slime-truncate-lines nil
+      slime-multiprocessing t
+      slime-net-coding-system 'utf-8-unix
+      slime-complete-symbol-function 'slime-fuzzy-complete-symbol
+      slime-startup-animation nil
+      slime-header-line-p t)
+
+;;; indentation
 (make-variable-buffer-local 'lisp-indent-function)
 (setq lisp-indent-function 'common-lisp-indent-function)
 
-(setq lisp-simple-loop-indentation 2
-      lisp-loop-keyword-indentation 6
-      lisp-loop-forms-indentation 6)
-
-(setq lisp-lambda-list-keyword-parameter-alignment t)
-(setq lisp-lambda-list-keyword-alignment t)
-(setq slime-header-line-p t)
+(setq common-lisp-style-default "modern"
+      lisp-lambda-list-keyword-alignment t
+      lisp-lambda-list-keyword-parameter-alignment t
+      lisp-lambda-list-keyword-parameter-indentation 4)
 
 (defun slime-key-bindings ()
   (interactive)
