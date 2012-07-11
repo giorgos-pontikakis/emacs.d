@@ -21,20 +21,10 @@
   (define-key global-map (kbd "M-<home>") 'hs-hide-all)
   (define-key global-map (kbd "M-<end>") 'hs-show-all)
 
-  (define-key global-map (kbd "C-1") (lambda ()
-                                       (interactive)
-                                       (slime 'sbcl)))
-  (define-key global-map (kbd "C-2") (lambda ()
-                                       (interactive)
-                                       (slime 'slime)))
-  (define-key global-map (kbd "C-3") (lambda ()
-                                       (interactive)
-                                       (slime 'web)))
-
   ;; --- Undo, Redo, goto-last-change ---
   (define-key global-map (kbd "C-z") 'undo)
   (define-key global-map (kbd "M-z") 'redo)
-  (define-key global-map (kbd "C-<") 'goto-last-change)
+  (define-key global-map (kbd "C-c l") 'goto-last-change)
 
   ;; --- Letters --
   (define-key global-map (kbd "M-g") 'goto-line)
