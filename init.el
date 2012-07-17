@@ -59,7 +59,8 @@
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 
 
-;; Emacs server
+;; EMACS SERVER
+
 (require 'server)
 (unless (server-running-p)
   (server-start))

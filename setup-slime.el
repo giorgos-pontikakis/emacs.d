@@ -8,18 +8,16 @@
 ;;; Slime via quicklisp
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
 
-;;; Replace "sbcl" with the path to your implementation
-;; (setq inferior-lisp-program "/usr/bin/sbcl")
 
 ;;; Load Slime with contrib functionality
+
 (require 'slime)
 (slime-setup '(slime-fancy
                slime-asdf
                slime-banner
                slime-indentation
                slime-xref-browser
-               slime-compiler-notes-tree
-               slime-mdot-fu))
+               slime-compiler-notes-tree))
 
 (setq slime-complete-symbol*-fancy t
       slime-display-compilation-output nil
@@ -44,6 +42,7 @@
       lisp-lambda-list-keyword-parameter-alignment t
       lisp-lambda-list-keyword-parameter-indentation 4)
 
+
 ;;; Key bindings and faces
 
 (defun slime-key-bindings ()
@@ -57,6 +56,9 @@
   (define-key slime-mode-map (kbd "C-c TAB") 'slime-complete-form)
   (define-key slime-mode-map (kbd "C-;") 'slime-insert-balanced-comments)
   (define-key slime-mode-map (kbd "C-M-;") 'slime-remove-balanced-comments)
+
+  (define-key sldb-mode-map (kbd "C-M-<left>") 'slime-previous-presentation)
+  (define-key sldb-mode-map (kbd "C-M-<right>") 'slime-next-presentation)
 
   (define-key global-map (kbd "C-c 1") (lambda ()
                                          (interactive)
