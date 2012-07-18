@@ -69,11 +69,13 @@
   (define-key global-map (kbd "<f4>") 'make-frame)
 
   ;; f5-f8
-  (define-key global-map (kbd "<f5>") 'calc)
-  (define-key global-map (kbd "C-<f5>") 'toggle-read-only)
+  (define-key global-map (kbd "<f5>") 'toggle-read-only)
   (define-key global-map (kbd "<f6>") 'menu-bar-mode)
   (define-key global-map (kbd "<f7>") 'toggle-truncate-lines)
   (define-key global-map (kbd "<f8>") 'visual-line-mode)
+
+  (define-key global-map (kbd "C-<f5>") 'calc)
+  (define-key global-map (kbd "C-<f8>") 'remember)
 
   ;; f12 for files. f9-f11 reserved for mode-specific stuff
   (define-key global-map (kbd "<f12>") 'ido-switch-buffer)

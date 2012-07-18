@@ -10,7 +10,7 @@
  '(cua-mode t nil (cua-base))
  '(cua-normal-cursor-color "snow")
  '(cua-overwrite-cursor-color "red")
- '(cua-read-only-cursor-color "yellow")
+ '(cua-read-only-cursor-color "snow")
  '(ido-auto-merge-work-directories-length -1)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-case-fold t)

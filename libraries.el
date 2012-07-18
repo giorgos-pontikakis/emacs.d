@@ -34,4 +34,8 @@
 (setq tramp-copy-size-limit 1024)
 
 
+;;; remember mode
+(require 'remember)
+
+
 (provide 'libraries)
