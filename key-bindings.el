@@ -59,6 +59,8 @@
 
   (define-key global-map (kbd "S-M-<up>") 'backward-up-list-mark)
 
+  (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
+
   ;; --- Function Keys. ---
   ;; Warning: Combinations of F1-F12 with C and M interfere with OS shortcuts
 
