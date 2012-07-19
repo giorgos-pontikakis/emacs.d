@@ -13,7 +13,7 @@
 
 (defun gnp-global-key-bindings ()
   (interactive)
-  ;; --- Window Manipulation ---
+  ;; --- Text visibility ---
   (define-key global-map (kbd "C-<kp-add>") 'text-scale-increase)
   (define-key global-map (kbd "C-<kp-subtract>") 'text-scale-decrease)
   (define-key global-map (kbd "M-<prior>") 'hs-hide-block)
@@ -24,19 +24,19 @@
   ;; --- Undo, Redo, goto-last-change ---
   (define-key global-map (kbd "C-z") 'undo)
   (define-key global-map (kbd "M-z") 'redo)
-  (define-key global-map (kbd "C-c l") 'goto-last-change)
+  (define-key global-map (kbd "C-x l") 'goto-last-change)
 
-  ;; --- Letters --
-  (define-key global-map (kbd "M-g") 'goto-line)
-  (define-key global-map (kbd "M-s") 'search-forward-regexp)
-  (define-key global-map (kbd "C-M-q") 'indent-region)
+  ;; --- Miscellaneous commands ---
   (define-key global-map (kbd "M-/") 'hippie-expand)
   (define-key global-map (kbd "M-j") 'toggle-input-method)
+  (define-key global-map (kbd "C-x 9") 'delete-other-windows-vertically)
 
   ;; --- Special Keys ---
   (define-key global-map (kbd "S-<backspace>") 'join-line)
   (define-key global-map (kbd "C-<tab>") 'other-window)
-  (define-key global-map (kbd "C-S-<lefttab>") 'previous-multiframe-window)
+  (define-key global-map (kbd "C-S-<iso-lefttab>") (lambda ()
+                                                     (interactive)
+                                                     (other-window -1)))
 
   (define-key global-map (kbd "C-<delete>") 'kill-word)
   (define-key global-map (kbd "M-<delete>") 'kill-sexp)
@@ -60,9 +60,12 @@
   (define-key global-map (kbd "S-M-<up>") 'backward-up-list-mark)
 
   (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
+  (define-key global-map (kbd "C-x <backspace>") (lambda ()
+                                                   (interactive)
+                                                   (just-one-space -1)))
+  (define-key global-map (kbd "C-x <delete>") 'delete-blank-lines)
 
-  ;; --- Function Keys. ---
-  ;; Warning: Combinations of F1-F12 with C and M interfere with OS shortcuts
+  ;; --- Function Keys ---
 
   ;; f1-f4: general
   (define-key global-map (kbd "<f1>") 'slime-selector)
