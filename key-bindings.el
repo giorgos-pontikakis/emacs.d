@@ -80,7 +80,8 @@
   (define-key global-map (kbd "<f8>") 'visual-line-mode)
 
   (define-key global-map (kbd "C-<f5>") 'calc)
-  (define-key global-map (kbd "C-<f8>") 'remember)
+  (define-key global-map (kbd "C-<f6>") 'remember)
+  (define-key global-map (kbd "C-<f8>") 'rgrep)
 
   ;; f12 for files. f9-f11 reserved for mode-specific stuff
   (define-key global-map (kbd "<f12>") 'ido-switch-buffer)
