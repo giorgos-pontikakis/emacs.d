@@ -170,9 +170,19 @@ then signal an error, in the interest of preserving structure."
   (define-key dired-mode-map [remap toggle-read-only] nil)
   (define-key dired-mode-map (kbd "C-x M-q") 'dired-toggle-read-only))
 
+(defun org-key-bindings ()
+  (interactive)
+  (define-key org-mode-map (kbd "C-M-<tab>") 'org-force-cycle-archived)
+  (define-key org-mode-map (kbd "C-<tab>") nil))
 
 ;;; Bind the keys
 (global-key-bindings)
+
+(eval-after-load "dired"
+  '(dired-key-bindings))
+
+(eval-after-load "org"
+  '(org-key-bindings))
 
 ;;; These should be useful in Windows,
 ;;; where there is no xmodmap equivalent
@@ -181,8 +191,5 @@ then signal an error, in the interest of preserving structure."
   (keyboard-translate ?\[ ?\()
   (keyboard-translate ?\) ?\])
   (keyboard-translate ?\] ?\)))
-
-(eval-after-load "dired"
-  '(dired-key-bindings))
 
 (provide 'key-bindings)
