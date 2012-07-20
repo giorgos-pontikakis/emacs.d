@@ -11,9 +11,28 @@
     (forward-sexp-mark)
     (kill-ring-save beg (point))))
 
-(defun gnp-global-key-bindings ()
+(defun bracket-wrap-sexp (&optional n)
+  "Wrap the following S-expression in a list.
+If a prefix argument N is given, wrap N S-expressions.
+Automatically indent the newly wrapped S-expression. As a special
+case, if the point is at the end of a list, simply insert a pair
+of parentheses, rather than insert a lone opening parenthesis and
+then signal an error, in the interest of preserving structure."
+  (interactive "P")
+  (paredit-handle-sexp-errors
+      (paredit-insert-pair (or n
+                               (and (not (paredit-region-active-p))
+                                    1))
+                           ?\[ ?\]
+                           'goto-char)
+    (insert ?\] )
+    (backward-char))
+  (save-excursion (backward-up-list) (indent-sexp)))
+
+(defun global-key-bindings ()
   (interactive)
-  ;; --- Text visibility ---
+
+  ;; Text visibility
   (define-key global-map (kbd "C-<kp-add>") 'text-scale-increase)
   (define-key global-map (kbd "C-<kp-subtract>") 'text-scale-decrease)
   (define-key global-map (kbd "M-<prior>") 'hs-hide-block)
@@ -21,17 +40,18 @@
   (define-key global-map (kbd "M-<home>") 'hs-hide-all)
   (define-key global-map (kbd "M-<end>") 'hs-show-all)
 
-  ;; --- Undo, Redo, goto-last-change ---
+  ;; Undo, Redo, goto-last-change
   (define-key global-map (kbd "C-z") 'undo)
   (define-key global-map (kbd "M-z") 'redo)
   (define-key global-map (kbd "C-x l") 'goto-last-change)
+  (define-key global-map (kbd "C-x M-f") 'view-file)
 
-  ;; --- Miscellaneous commands ---
+  ;; Miscellaneous commands
   (define-key global-map (kbd "M-/") 'hippie-expand)
   (define-key global-map (kbd "M-j") 'toggle-input-method)
   (define-key global-map (kbd "C-x 9") 'delete-other-windows-vertically)
 
-  ;; --- Special Keys ---
+  ;; Movement and region handling
   (define-key global-map (kbd "S-<backspace>") 'join-line)
   (define-key global-map (kbd "C-<tab>") 'other-window)
   (define-key global-map (kbd "C-S-<iso-lefttab>") (lambda ()
@@ -58,37 +78,39 @@
   (define-key global-map (kbd "C-M-<down>") 'forward-paragraph)
 
   (define-key global-map (kbd "S-M-<up>") 'backward-up-list-mark)
-
-  (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
   (define-key global-map (kbd "C-x <backspace>") (lambda ()
                                                    (interactive)
                                                    (just-one-space -1)))
   (define-key global-map (kbd "C-x <delete>") 'delete-blank-lines)
 
-  ;; --- Function Keys ---
+  ;; Brackets
+  (define-key global-map (kbd "M-[") 'bracket-wrap-sexp)
+  (modify-syntax-entry ?\[ "(]" lisp-mode-syntax-table)
+  (modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
 
   ;; f1-f4: general
   (define-key global-map (kbd "<f1>") 'slime-selector)
-  (define-key global-map (kbd "<f2>") 'list-matching-lines)
+  (define-key global-map (kbd "<f2>") 'occur)
   (define-key global-map (kbd "<f3>") 'query-replace)
-  (define-key global-map (kbd "<f4>") 'make-frame)
+  (define-key global-map (kbd "<f4>") 'rgrep)
 
-  ;; f5-f8
-  (define-key global-map (kbd "<f5>") 'toggle-read-only)
-  (define-key global-map (kbd "<f6>") 'menu-bar-mode)
-  (define-key global-map (kbd "<f7>") 'toggle-truncate-lines)
-  (define-key global-map (kbd "<f8>") 'visual-line-mode)
+  ;; f5-f8: programs
+  (define-key global-map (kbd "<f5>") 'calc)
+  (define-key global-map (kbd "<f6>") 'find-grep-dired)
+  (define-key global-map (kbd "<f7>") 'find-dired)
+  (define-key global-map (kbd "<f8>") 'find-grep)
 
-  (define-key global-map (kbd "C-<f5>") 'calc)
-  (define-key global-map (kbd "C-<f6>") 'remember)
-  (define-key global-map (kbd "C-<f8>") 'rgrep)
+  ;; C-<f5-f8>: appearance
+  (define-key global-map (kbd "C-<f5>") 'whitespace-mode)
+  (define-key global-map (kbd "C-<f6>") 'menu-bar-mode)
+  (define-key global-map (kbd "C-<f7>") 'toggle-truncate-lines)
+  (define-key global-map (kbd "C-<f8>") 'visual-line-mode)
 
-  ;; f12 for files. f9-f11 reserved for mode-specific stuff
+  ;; f12 for buffers. f9-f11 reserved for mode-specific stuff
   (define-key global-map (kbd "<f12>") 'ido-switch-buffer)
   (define-key global-map (kbd "C-<f12>") 'kill-this-buffer)
   (define-key global-map (kbd "M-<f12>") 'revert-buffer)
 
-  ;; --- Keypad ---
   ;;  Fonts
   (define-key global-map (kbd "<C-kp-0>")
     '(lambda ()
@@ -136,33 +158,21 @@
   (define-key global-map (kbd "<C-kp-9>")
     '(lambda ()
        (interactive)
-       (gnp-dark-colors))))
+       (gnp-dark-colors)))
 
+  ;; Emacs Lisp
+  (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
+  (define-key lisp-interaction-mode-map (kbd "C-M-TAB") 'completion-at-point)
+  (define-key emacs-lisp-mode-map (kbd "C-M-TAB") 'completion-at-point))
 
-(defun bracket-wrap-sexp (&optional n)
-  "Wrap the following S-expression in a list.
-If a prefix argument N is given, wrap N S-expressions.
-Automatically indent the newly wrapped S-expression.
-As a special case, if the point is at the end of a list, simply insert
-  a pair of parentheses, rather than insert a lone opening parenthesis
-  and then signal an error, in the interest of preserving structure."
-  (interactive "P")
-  (paredit-handle-sexp-errors
-      (paredit-insert-pair (or n
-                               (and (not (paredit-region-active-p))
-                                    1))
-                           ?\[ ?\]
-                           'goto-char)
-    (insert ?\] )
-    (backward-char))
-  (save-excursion (backward-up-list) (indent-sexp)))
+(defun dired-key-bindings ()
+  (interactive)
+  (define-key dired-mode-map [remap toggle-read-only] nil)
+  (define-key dired-mode-map (kbd "C-x M-q") 'dired-toggle-read-only))
 
 
 ;;; Bind the keys
-(gnp-global-key-bindings)
-(modify-syntax-entry ?\[ "(]" lisp-mode-syntax-table)
-(modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
-(define-key global-map (kbd "M-[") 'bracket-wrap-sexp)
+(global-key-bindings)
 
 ;;; These should be useful in Windows,
 ;;; where there is no xmodmap equivalent
@@ -171,5 +181,8 @@ As a special case, if the point is at the end of a list, simply insert
   (keyboard-translate ?\[ ?\()
   (keyboard-translate ?\) ?\])
   (keyboard-translate ?\] ?\)))
+
+(eval-after-load "dired"
+  '(dired-key-bindings))
 
 (provide 'key-bindings)

@@ -53,8 +53,6 @@
   (set-face-attribute 'header-line nil :inherit 'mode-line :background "grey" :foreground "black")
   (set-face-attribute 'region nil :background "grey50" :foreground "black"))
 
-
-
 (defun gnp-light-colors ()
   (interactive)
   (set-face-attribute 'show-paren-match-face nil :background "grey88" :foreground "red" :weight 'bold)
