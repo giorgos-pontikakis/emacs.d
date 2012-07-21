@@ -32,6 +32,7 @@
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
 
-
+;;; wgrep
+(require 'wgrep)
 
 (provide 'libraries)
