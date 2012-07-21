@@ -26,11 +26,9 @@
 
 (require 'libraries)
 
-(require 'setup-apache-mode)
 (require 'setup-slime)
 (require 'setup-paredit)
 (require 'setup-redshank)
-(require 'setup-misc)
 
 (require 'appearance)
 (require 'behavior)
