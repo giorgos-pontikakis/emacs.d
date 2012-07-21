@@ -162,8 +162,9 @@ then signal an error, in the interest of preserving structure."
 
   ;; Emacs Lisp
   (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
-  (define-key lisp-interaction-mode-map (kbd "C-M-<tab>") 'completion-at-point)
-  (define-key emacs-lisp-mode-map (kbd "C-M-<tab>") 'completion-at-point))
+  (define-key lisp-interaction-mode-map (kbd "<backtab>") 'completion-at-point)
+  (define-key emacs-lisp-mode-map (kbd "<backtab>") 'completion-at-point))
+
 
 (defun dired-key-bindings ()
   (interactive)

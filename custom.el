@@ -37,7 +37,8 @@
  '(org-startup-indented t)
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(wdired-allow-to-change-permissions (quote advanced))
- '(wdired-use-dired-vertical-movement (quote sometimes)))
+ '(wdired-use-dired-vertical-movement (quote sometimes))
+ '(wgrep-enable-key ""))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -51,6 +52,7 @@
  '(slime-repl-output-face ((t (:foreground "light slate gray"))))
  '(slime-repl-output-mouseover-face ((t (:inherit slime-repl-inputed-output-face))))
  '(slime-repl-prompt-face ((t (:foreground "cyan3"))))
+ '(wgrep-delete-face ((t (:background "SlateGray1" :foreground "red" :weight bold))))
  '(wgrep-face ((t (:background "SlateGray1" :foreground "Black"))))
  '(wgrep-file-face ((t (:background "gray30" :foreground "white"))))
  '(wgrep-reject-face ((t (:foreground "hot pink")))))
