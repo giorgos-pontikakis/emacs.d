@@ -1,6 +1,5 @@
 
-;;; (autoload FUNCTION FILE &optional DOCSTRING INTERACTIVE TYPE)
-
+;;; MISCELLANEOUS INDEPENDENT LIBRARIES IN SITE-LISP
 
 (autoload 'regex-tool "regex-tool" t)
 

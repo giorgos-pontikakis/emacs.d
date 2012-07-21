@@ -24,18 +24,18 @@
 
 ;;; LIBRARIES
 
-(require 'cl)
-(require 'appearance)
-(require 'behavior)
 (require 'libraries)
-(require 'key-bindings)
-(require 'hacks)
+
 (require 'setup-apache-mode)
 (require 'setup-slime)
 (require 'setup-paredit)
 (require 'setup-redshank)
 (require 'setup-misc)
-(require 'setup-package)
+
+(require 'appearance)
+(require 'behavior)
+(require 'key-bindings)
+(require 'hacks)
 
 
 ;;; HOOKS
