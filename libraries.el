@@ -32,7 +32,11 @@
 ;;; yasnippet
 (require 'yasnippet)
 (setq yas/root-directory '("~/.emacs.d/snippets" "~/.emacs.d/elpa/yasnippet-0.6.1/snippets"))
-(yas/load-directory yas/root-directory)
+(mapc #'yas/load-directory yas/root-directory)
+(yas/global-mode 1)
+(setq yas/prompt-functions '(yas/ido-prompt
+                             yas/completing-prompt
+                             yas/no-prompt))
 
 ;;; Apache mode
 (autoload 'apache-mode "apache-mode" nil t)
@@ -43,6 +47,22 @@
 (add-to-list 'auto-mode-alist '("access\\.conf\\'" . apache-mode))
 (add-to-list 'auto-mode-alist '("sites-\\(available\\|enabled\\)/" . apache-mode))
 
+;;; ace-jump-mode
+(require 'ace-jump-mode)
+(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+
+;; ido-ubiquitous
+(require 'ido-ubiquitous)
+(ido-ubiquitous-mode 1)
+
+;; Smart M-x is smart
+(require 'smex)
+(smex-initialize)
+(global-set-key (kbd "M-x") 'smex)
+(global-set-key (kbd "C-x M-X") 'smex-major-mode-commands)
+(global-set-key (kbd "C-x M-x") 'execute-extended-command)
+
+
 ;;; Misc from ELPA
 (require 'remember)
 (require 'wgrep)
@@ -50,8 +70,6 @@
 (require 'redo+)
 (autoload 'goto-last-change "goto-last-change"
   "Set point to the position of the last change." t)
-
-
 
 
 (provide 'libraries)

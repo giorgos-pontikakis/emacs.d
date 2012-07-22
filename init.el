@@ -29,6 +29,7 @@
 (require 'setup-slime)
 (require 'setup-paredit)
 (require 'setup-redshank)
+(require 'setup-dired)
 
 (require 'appearance)
 (require 'behavior)
@@ -43,7 +44,7 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(add-hook 'text-mode-hook 'turn-on-auto-fill)
+(add-hook 'text-mode-hook 'refill-mode)
 
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (enable-paredit-mode)

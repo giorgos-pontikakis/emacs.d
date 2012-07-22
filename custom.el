@@ -32,7 +32,6 @@
  '(ido-record-commands t)
  '(ido-show-dot-for-dired t)
  '(js-indent-level 3)
- '(js2-basic-offset 3)
  '(org-disputed-keys (quote (([(shift up)] . [(control meta up)]) ([(shift down)] . [(control meta down)]) ([(shift left)] . [(control meta left)]) ([(shift right)] . [(control meta right)]) ([(control shift right)] . [(meta n)]) ([(control shift left)] . [(meta p)]))))
  '(org-replace-disputed-keys t)
  '(org-src-fontify-natively t)
@@ -40,8 +39,7 @@
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(wdired-allow-to-change-permissions (quote advanced))
  '(wdired-use-dired-vertical-movement (quote sometimes))
- '(wgrep-enable-key "")
- '(yas/global-mode nil nil (yasnippet)))
+ '(wgrep-enable-key ""))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
