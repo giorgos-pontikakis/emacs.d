@@ -13,6 +13,8 @@
  '(cua-read-only-cursor-color "snow")
  '(grep-command "grep -nH -E -e ")
  '(grep-find-template "find . <X> -type f <F> -exec grep <C> -nH -E -e <R> {} +")
+ '(hippie-expand-ignore-buffers (quote ("^ \\*.*\\*$" dired-mode REPL)))
+ '(hippie-expand-try-functions-list (quote (yas/hippie-try-expand try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol)))
  '(ido-auto-merge-work-directories-length -1)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-case-fold t)
@@ -38,7 +40,8 @@
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(wdired-allow-to-change-permissions (quote advanced))
  '(wdired-use-dired-vertical-movement (quote sometimes))
- '(wgrep-enable-key ""))
+ '(wgrep-enable-key "")
+ '(yas/global-mode nil nil (yasnippet)))
 
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
