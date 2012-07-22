@@ -50,6 +50,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "M-/") 'hippie-expand)
   (define-key global-map (kbd "M-j") 'toggle-input-method)
   (define-key global-map (kbd "C-x 9") 'delete-other-windows-vertically)
+  (define-key global-map (kbd "C-x M-u") 'upcase-region-gr)
 
   ;; Movement and region handling
   (define-key global-map (kbd "S-<backspace>") 'join-line)

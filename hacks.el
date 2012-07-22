@@ -27,5 +27,36 @@
 (dolist (symbol *nm-cl-html-symbols*)
   (nm-cl-indent symbol '(&body)))
 
+(defun upcase-gr (string)
+  "Upcase a string and converted accented characters to
+non-accented. Also take care of final sigma."
+  (let ((result-string (upcase string)))
+    (mapc #'(lambda (pair)
+              (nsubstitute (cdr pair)
+                           (car pair)
+                           result-string))
+          '((?\Ά . ?\Α)
+            (?\Έ . ?\Ε)
+            (?\Ή . ?\Η)
+            (?\Ί . ?\Ι)
+            (?\ΐ . ?\Ϊ)
+            (?\Ό . ?\Ο)
+            (?\ς . ?\Σ)
+            (?\Ύ . ?\Υ)
+            (?\Ώ . ?\Ω)
+            (?\ΰ . ?\Ϋ)))
+    result-string))
+
+(defun upcase-region-gr (beg end)
+  "Like upcase-region, but respecting capitalization rules for
+the Greek language. Converts accented characters to non-accented
+and takes care of the final sigma."
+  (interactive "r")
+  (barf-if-buffer-read-only)
+  (let ((result (upcase-gr (delete-and-extract-region beg end))))
+    (save-excursion (insert result))))
+
+
+
 
 (provide 'hacks)
