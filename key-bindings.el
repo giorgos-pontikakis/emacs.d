@@ -102,7 +102,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "<f8>") 'find-grep)
 
   ;; C-<f5-f8>: appearance
-  (define-key global-map (kbd "C-<f5>") 'whitespace-mode)
+  (define-key global-map (kbd "C-<f5>") 'refill-mode)
   (define-key global-map (kbd "C-<f6>") 'menu-bar-mode)
   (define-key global-map (kbd "C-<f7>") 'toggle-truncate-lines)
   (define-key global-map (kbd "C-<f8>") 'visual-line-mode)
