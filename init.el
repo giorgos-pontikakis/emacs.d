@@ -44,8 +44,6 @@
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
-(add-hook 'text-mode-hook 'refill-mode)
-
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (enable-paredit-mode)
                                   (hs-minor-mode t)))
@@ -73,12 +71,6 @@
 ;; (setq save-place-file (expand-file-name ".places" dotfiles-dir))
 
 ;; ;; Setup extensions
-;; (require 'setup-yasnippet)
-;; (require 'setup-dired)
-;; (require 'setup-magit)
-;; (require 'setup-rgrep)
-;; (require 'setup-hippie)
-;; (require 'setup-ace-jump-mode)
 ;; (require 'setup-perspective)
 ;; (require 'setup-shell)
 ;; (require 'setup-wrap-region)
@@ -118,17 +110,8 @@
 ;; (require 'browse-kill-ring)
 ;; (setq browse-kill-ring-quit-action 'save-and-restore)
 
-;; ;; Smart M-x is smart
-;; (require 'smex)
-;; (smex-initialize)
-
 ;; ;; Setup key bindings
 ;; (require 'key-bindings)
-
-;; ;; Misc
-;; (require 'appearance)
-;; (require 'misc)
-;; (when is-mac (require 'mac))
 
 ;; ;; Run at full power please
 ;; (put 'downcase-region 'disabled nil)

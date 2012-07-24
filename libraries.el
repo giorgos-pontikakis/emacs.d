@@ -37,10 +37,6 @@
 (setq yas/prompt-functions '(yas/ido-prompt
                              yas/completing-prompt
                              yas/no-prompt))
-(add-hook 'snippet-mode-hook (lambda ()
-                               ;; disable refill mode inherited from text-mode-hook
-                               (refill-mode 0)))
-
 
 ;;; Apache mode
 (autoload 'apache-mode "apache-mode" nil t)
