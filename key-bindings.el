@@ -99,7 +99,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "<f5>") 'calc)
   (define-key global-map (kbd "<f6>") 'find-grep-dired)
   (define-key global-map (kbd "<f7>") 'find-dired)
-  (define-key global-map (kbd "<f8>") 'find-grep)
+  (define-key global-map (kbd "<f8>") 'magit-status)
 
   ;; C-<f5-f8>: appearance
   (define-key global-map (kbd "C-<f5>") 'refill-mode)
