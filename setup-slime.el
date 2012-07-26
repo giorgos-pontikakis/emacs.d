@@ -29,7 +29,17 @@
       slime-net-coding-system 'utf-8-unix
       slime-complete-symbol-function 'slime-fuzzy-complete-symbol
       slime-startup-animation nil
-      slime-header-line-p t)
+      slime-header-line-p t
+      slime-load-failed-fasl t
+      slime-repl-history-remove-duplicates nil
+      slime-repl-history-trim-whitespaces t
+      slime-setup-autodoc-use-multiline-p t)
+
+
+;;; Isolate fasl files generated from slime-compile-file
+
+(make-directory "/tmp/slime-fasls/" t)
+(setq slime-compile-file-options '(:fasl-directory "/tmp/slime-fasls/"))
 
 
 ;;; Indentation
