@@ -1,8 +1,12 @@
 (require 'dired)
+(require 'dired-x)
 
 
-;; Reload dired after creating a directory
+;; Reload dired after creating a directory or creating af file
 (defadvice dired-create-directory (after revert-buffer-after-create activate)
+  (revert-buffer))
+
+(defadvice dired-delete-file (after revert-buffer-after-delete-file activate)
   (revert-buffer))
 
 ;; Reload dired after quitting wdired
