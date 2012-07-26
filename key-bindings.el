@@ -102,7 +102,8 @@ then signal an error, in the interest of preserving structure."
   ;; f5-f8: programs
   (define-key global-map (kbd "<f5>") 'calc)
   (define-key global-map (kbd "<f6>") 'find-grep-dired)
-  (define-key global-map (kbd "<f7>") 'find-dired)
+  (define-key global-map (kbd "<f7>") 'find-name-dired)
+  (define-key global-map (kbd "<M-f7>") 'find-dired)
   (define-key global-map (kbd "<f8>") 'magit-status)
 
   ;; C-<f5-f8>: appearance

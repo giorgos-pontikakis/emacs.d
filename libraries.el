@@ -62,7 +62,6 @@
 (global-set-key (kbd "C-x M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-x M-x") 'execute-extended-command)
 
-
 ;;; Misc from ELPA
 (require 'remember)
 (require 'wgrep)

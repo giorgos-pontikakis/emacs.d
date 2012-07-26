@@ -11,6 +11,7 @@
  '(cua-normal-cursor-color "snow")
  '(cua-overwrite-cursor-color "red")
  '(cua-read-only-cursor-color "snow")
+ '(find-ls-option (quote ("-exec ls -lda {} +" . "-lda")))
  '(grep-command "grep -nH -E -e ")
  '(grep-find-template "find . <X> -type f <F> -exec grep <C> -nH -E -e <R> {} +")
  '(hippie-expand-ignore-buffers (quote ("^ \\*.*\\*$" dired-mode REPL)))
