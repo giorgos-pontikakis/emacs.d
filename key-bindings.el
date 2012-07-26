@@ -46,9 +46,13 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "C-x l") 'goto-last-change)
   (define-key global-map (kbd "C-x M-f") 'view-file)
 
+  ;; Toggle input method
+  (define-key global-map (kbd "M-j") 'toggle-input-method)
+  (define-key isearch-mode-map (kbd "M-j") 'isearch-toggle-input-method)
+
+
   ;; Miscellaneous commands
   (define-key global-map (kbd "M-/") 'hippie-expand)
-  (define-key global-map (kbd "M-j") 'toggle-input-method)
   (define-key global-map (kbd "C-x 9") 'delete-other-windows-vertically)
   (define-key global-map (kbd "C-x M-u") 'upcase-region-gr)
 
