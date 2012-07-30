@@ -26,14 +26,18 @@
   (dired-previous-line 1))
 
 ;;; Bind the keys
+;;; Extend key bindings to mimic wgrep
 (define-key dired-mode-map (kbd "C-<up>") 'dired-jump-to-top)
 (define-key dired-mode-map (kbd "C-<down>") 'dired-jump-to-bottom)
 (define-key dired-mode-map (kbd "M-<up>") 'dired-up-directory)
+(define-key dired-mode-map (kbd "C-c C-w") 'wdired-change-to-wdired-mode)
 
 (eval-after-load "wdired"
   '(progn
      (define-key wdired-mode-map (kbd "C-<up>") 'dired-jump-to-top)
-     (define-key wdired-mode-map (kbd "C-<down>") 'dired-jump-to-bottom)))
+     (define-key wdired-mode-map (kbd "C-<down>") 'dired-jump-to-bottom)
+     (define-key wdired-mode-map (kbd "C-c C-k") 'wdired-abort-changes)
+     (define-key wdired-mode-map (kbd "C-x C-s") 'wdired-finish-changes)))
 
 
 (provide 'setup-dired)

@@ -48,7 +48,9 @@ then signal an error, in the interest of preserving structure."
 
   ;; Toggle input method
   (define-key global-map (kbd "M-j") 'toggle-input-method)
+
   (define-key isearch-mode-map (kbd "M-j") 'isearch-toggle-input-method)
+  (define-key isearch-mode-map (kbd "S-<insert>") 'isearch-yank-kill)
 
 
   ;; Miscellaneous commands
