@@ -70,5 +70,8 @@
 (autoload 'goto-last-change "goto-last-change"
   "Set point to the position of the last change." t)
 
+;;; Google Translate
+(require 'google-translate)
+(global-set-key "\C-ct" 'google-translate-query-translate)
 
 (provide 'libraries)

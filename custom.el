@@ -51,6 +51,8 @@
  '(ido-first-match ((t (:foreground "tomato"))))
  '(ido-only-match ((((class color)) (:foreground "tomato"))))
  '(ido-subdir ((((min-colors 88) (class color)) (:foreground "gold2"))))
+ '(isearch ((t (:background "firebrick" :foreground "bisque2"))))
+ '(lazy-highlight ((t (:background "OliveDrab4" :foreground "black"))))
  '(slime-repl-input-face ((t (:foreground "lime green"))))
  '(slime-repl-output-face ((t (:foreground "light slate gray"))))
  '(slime-repl-output-mouseover-face ((t (:inherit slime-repl-inputed-output-face))))
