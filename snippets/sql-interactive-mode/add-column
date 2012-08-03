@@ -1,0 +1,5 @@
+# -*- mode: snippet -*-
+# name: add-column
+# key: addcol
+# --
+alter table $1 add column $0;
