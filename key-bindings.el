@@ -168,6 +168,12 @@ then signal an error, in the interest of preserving structure."
        (interactive)
        (gnp-dark-colors)))
 
+  ;; ORG-related, global map
+  (define-key global-map (kbd "C-c l") 'org-store-link)
+  (define-key global-map (kbd "C-c c") 'org-capture)
+  (define-key global-map (kbd "C-c a") 'org-agenda)
+  (define-key global-map (kbd "C-c b") 'org-iswitchb)
+
   ;; Emacs Lisp
   (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
   (define-key lisp-interaction-mode-map (kbd "<backtab>") 'completion-at-point)

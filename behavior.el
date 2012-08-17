@@ -133,6 +133,7 @@ read-only."
 (put 'upcase-region 'disabled nil)
 (put 'downcase-region 'disabled nil)
 (put 'scroll-left 'disabled nil)
+(put 'dired-find-alternate-file 'disabled nil)
 
 ;; Lines should be 80 characters wide, not 72
 (setq fill-column 80)

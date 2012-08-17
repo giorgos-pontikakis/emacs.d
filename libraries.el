@@ -63,7 +63,6 @@
 (global-set-key (kbd "C-x M-x") 'execute-extended-command)
 
 ;;; Misc from ELPA
-(require 'remember)
 (require 'wgrep)
 (autoload 'regex-tool "regex-tool" t)
 (require 'redo+)
