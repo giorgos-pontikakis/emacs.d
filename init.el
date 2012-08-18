@@ -30,6 +30,7 @@
 (require 'setup-paredit)
 (require 'setup-redshank)
 (require 'setup-dired)
+(require 'setup-org)
 
 (require 'appearance)
 (require 'behavior)

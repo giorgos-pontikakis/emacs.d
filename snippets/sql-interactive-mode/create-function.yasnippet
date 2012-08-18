@@ -2,11 +2,11 @@
 # name: create-function
 # key: addfun
 # --
-CREATE OR REPLACE FUNCTION $1 ()
-RETURNS $2 AS
+CREATE OR REPLACE FUNCTION $1 ($2)
+RETURNS $3 AS
 $$
-SELECT $3
-FROM $4
-JOIN $5
+SELECT $4
+FROM $5
+JOIN $6
 WHERE $0
-$$ language sql;
+$$ LANGUAGE SQL;
