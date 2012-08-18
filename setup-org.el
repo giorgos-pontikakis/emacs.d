@@ -2,19 +2,20 @@
 ;;; capture
 (setq org-capture-templates
       '(("s" "Scrooge")
-        ("si" "Ideas"
-         entry (file+headline "~/www/scrooge/documentation.org" "Ideas")
-         "** %?
-%t - %f" :empty-lines 1)
 
         ("sb" "Bugs" entry (file+headline "~/www/scrooge/documentation.org" "Bugs")
          "** %?
 %t - %f" :empty-lines 1)
 
-        ("sb" "Code" entry (file+headline "~/www/scrooge/documentation.org" "Code")
+        ("sc" "Code" entry (file+headline "~/www/scrooge/documentation.org" "Code")
          "** %?
 %t - %f" :empty-lines 1)
-        ;; -- general
+
+        ("si" "Ideas"
+         entry (file+headline "~/www/scrooge/documentation.org" "Ideas")
+         "** %?
+%t - %f" :empty-lines 1)
+
         ("g" "General Notes" entry (file+headline "~/Dropbox/notes.org" "Random")
          "** %?
 %t" :empty-lines 1)))
@@ -33,7 +34,8 @@
 (setq org-src-fontify-natively t
       org-blank-before-new-entry '((heading . t) (plain-list-item . nil))
       org-completion-use-ido t
-      org-return-follows-link t)
+      org-return-follows-link t
+      org-cycle-separator-lines 1)
 
 ;;; Org Structure
 (setq org-indent-mode t
