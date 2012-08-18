@@ -17,9 +17,6 @@
 (defun gnp-paredit-key-bindings ()
   (interactive)
 
-  ;; (define-key paredit-mode-map (kbd "C-k") 'kill-sexp)
-  ;; (define-key paredit-mode-map (kbd "C-t") 'transpose-sexps)
-
   (define-key paredit-mode-map (kbd "M-)") 'paredit-close-round)
   (define-key paredit-mode-map (kbd ")") 'paredit-close-round-and-newline)
 

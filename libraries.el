@@ -73,4 +73,13 @@
 (require 'google-translate)
 (global-set-key "\C-ct" 'google-translate-query-translate)
 
+;;; Deft mode
+(require 'deft)
+(setq deft-extension "org")
+(setq deft-directory "~/Dropbox/org/")
+(setq deft-text-mode 'org-mode)
+(setq deft-use-filename-as-title nil)
+(setq deft-auto-save-interval 0)
+
+
 (provide 'libraries)

@@ -52,11 +52,12 @@ then signal an error, in the interest of preserving structure."
   (define-key isearch-mode-map (kbd "M-j") 'isearch-toggle-input-method)
   (define-key isearch-mode-map (kbd "S-<insert>") 'isearch-yank-kill)
 
-
   ;; Miscellaneous commands
   (define-key global-map (kbd "M-/") 'hippie-expand)
   (define-key global-map (kbd "C-x 9") 'delete-other-windows-vertically)
   (define-key global-map (kbd "C-x M-u") 'upcase-region-gr)
+  (define-key global-map (kbd "C-t") 'transpose-sexps)
+  (define-key global-map (kbd "C-M-t") 'transpose-chars)
 
   ;; Movement and region handling
   (define-key global-map (kbd "S-<backspace>") 'join-line)
@@ -106,7 +107,8 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "<f6>") 'find-grep-dired)
   (define-key global-map (kbd "<f7>") 'find-name-dired)
   (define-key global-map (kbd "<M-f7>") 'find-dired)
-  (define-key global-map (kbd "<f8>") 'magit-status)
+  (define-key global-map (kbd "<f8>") 'deft)
+  (define-key global-map (kbd "M-<f8>") 'magit-status)
 
   ;; C-<f5-f8>: appearance
   (define-key global-map (kbd "C-<f5>") 'refill-mode)

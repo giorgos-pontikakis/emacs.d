@@ -3,20 +3,28 @@
 (setq org-capture-templates
       '(("s" "Scrooge")
 
-        ("sb" "Bugs" entry (file+headline "~/www/scrooge/documentation.org" "Bugs")
+        ("sb" "Bugs" entry (file+headline "/Dropbox/org/scrooge.org" "Bugs")
          "** %?
 %t - %f" :empty-lines 1)
 
-        ("sc" "Code" entry (file+headline "~/www/scrooge/documentation.org" "Code")
+        ("sc" "Code" entry (file+headline "~/Dropbox/org/scrooge.org" "Code")
          "** %?
 %t - %f" :empty-lines 1)
 
         ("si" "Ideas"
-         entry (file+headline "~/www/scrooge/documentation.org" "Ideas")
+         entry (file+headline "~/Dropbox/org/scrooge.org" "Ideas")
          "** %?
 %t - %f" :empty-lines 1)
 
-        ("g" "General Notes" entry (file+headline "~/Dropbox/notes.org" "Random")
+        ("a" "System Administration" entry (file+headline "~/Dropbox/org/sysadmin.org" "Misc")
+         "** %?
+%t" :empty-lines 1)
+
+        ("n" " Notes" entry (file+headline "~/Dropbox/org/notes.org" "Random")
+         "** %?
+%t" :empty-lines 1)
+
+        ("e" "Extherm" entry (file+headline "~/Dropbox/org/extherm.org" "Tasks")
          "** %?
 %t" :empty-lines 1)))
 
@@ -50,9 +58,15 @@
                                  (table    . t)
                                  (default  . t)))
 
+;;; Agenda and Refile
+(setq org-agenda-files '("~/Dropbox/org/"))
+(setq org-refile-targets '((org-agenda-files . (:level . 1)))
+      org-outline-path-complete-in-steps nil
+      org-refile-use-outline-path 'file)
+
 ;;; Misc
 (setq org-archive-location ".%s_archive::"
-      org-default-notes-file "~/.notes"
+      org-default-notes-file "~/Dropbox/org/notes.org"
       org-enforce-todo-dependencies t
       org-insert-heading-respect-content t)
 

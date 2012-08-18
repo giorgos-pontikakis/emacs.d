@@ -34,10 +34,6 @@
  '(ido-record-commands t)
  '(ido-show-dot-for-dired t)
  '(js-indent-level 3)
- '(org-catch-invisible-edits (quote show))
- '(org-insert-heading-respect-content t)
- '(org-special-ctrl-k t)
- '(org-yank-folded-subtrees nil)
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(smex-key-advice-ignore-menu-bar t)
  '(sql-pop-to-buffer-after-send-region t)
@@ -51,6 +47,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(deft-title-face ((t (:inherit font-lock-function-name-face))))
  '(ido-first-match ((t (:foreground "tomato"))))
  '(ido-only-match ((((class color)) (:foreground "tomato"))))
  '(ido-subdir ((((min-colors 88) (class color)) (:foreground "gold2"))))
