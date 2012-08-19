@@ -39,5 +39,14 @@
      (define-key wdired-mode-map (kbd "C-c C-k") 'wdired-abort-changes)
      (define-key wdired-mode-map (kbd "C-x C-s") 'wdired-finish-changes)))
 
+(defun dired-key-bindings ()
+  (interactive)
+  (define-key dired-mode-map [remap toggle-read-only] nil)
+  (define-key dired-mode-map (kbd "C-x M-q") 'dired-toggle-read-only))
+
+(eval-after-load "dired"
+  '(dired-key-bindings))
+
+
 
 (provide 'setup-dired)

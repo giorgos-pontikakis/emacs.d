@@ -20,7 +20,7 @@
          "** %?
 %t" :empty-lines 1)
 
-        ("n" " Notes" entry (file+headline "~/Dropbox/org/notes.org" "Random")
+        ("n" "Notes" entry (file+headline "~/Dropbox/org/notes.org" "Random")
          "** %?
 %t" :empty-lines 1)
 
@@ -69,6 +69,15 @@
       org-default-notes-file "~/Dropbox/org/notes.org"
       org-enforce-todo-dependencies t
       org-insert-heading-respect-content t)
+
+
+(defun org-key-bindings ()
+  (interactive)
+  (define-key org-mode-map (kbd "C-M-<tab>") 'org-force-cycle-archived)
+  (define-key org-mode-map (kbd "C-<tab>") nil))
+
+(eval-after-load "org"
+  '(org-key-bindings))
 
 
 

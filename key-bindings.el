@@ -175,31 +175,15 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "C-c c") 'org-capture)
   (define-key global-map (kbd "C-c a") 'org-agenda)
   (define-key global-map (kbd "C-c b") 'org-iswitchb)
+  (define-key global-map (kbd "S-<f12>") 'org-iswitchb)
 
   ;; Emacs Lisp
   (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
   (define-key lisp-interaction-mode-map (kbd "<backtab>") 'completion-at-point)
   (define-key emacs-lisp-mode-map (kbd "<backtab>") 'completion-at-point))
 
-
-(defun dired-key-bindings ()
-  (interactive)
-  (define-key dired-mode-map [remap toggle-read-only] nil)
-  (define-key dired-mode-map (kbd "C-x M-q") 'dired-toggle-read-only))
-
-(defun org-key-bindings ()
-  (interactive)
-  (define-key org-mode-map (kbd "C-M-<tab>") 'org-force-cycle-archived)
-  (define-key org-mode-map (kbd "C-<tab>") nil))
-
-;;; Bind the keys
+;;; Finally, bind the keys
 (global-key-bindings)
-
-(eval-after-load "dired"
-  '(dired-key-bindings))
-
-(eval-after-load "org"
-  '(org-key-bindings))
 
 ;;; These should be useful in Windows,
 ;;; where there is no xmodmap equivalent
