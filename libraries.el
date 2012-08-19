@@ -49,7 +49,7 @@
 
 ;;; ace-jump-mode
 (require 'ace-jump-mode)
-(define-key global-map (kbd "C-c SPC") 'ace-jump-mode)
+(define-key global-map (kbd "M-i") 'ace-jump-mode)
 
 ;; ido-ubiquitous
 (require 'ido-ubiquitous)
@@ -61,9 +61,13 @@
 (global-set-key (kbd "M-x") 'smex)
 (global-set-key (kbd "C-x M-X") 'smex-major-mode-commands)
 (global-set-key (kbd "C-x M-x") 'execute-extended-command)
+(setq smex-key-advice-ignore-menu-bar t)
+
+;;; wgrep
+(require 'wgrep)
+(setq wgrep-enable-key "")
 
 ;;; Misc from ELPA
-(require 'wgrep)
 (autoload 'regex-tool "regex-tool" t)
 (require 'redo+)
 (autoload 'goto-last-change "goto-last-change"
@@ -81,5 +85,10 @@
 (setq deft-use-filename-as-title nil)
 (setq deft-auto-save-interval 0)
 
+;;; browse-kill-ring
+(require 'browse-kill-ring)
+(setq browse-kill-ring-highlight-current-entry t)
+(setq browse-kill-ring-quit-action 'save-and-restore)
+(global-set-key (kbd "C-c k") 'browse-kill-ring)
 
 (provide 'libraries)

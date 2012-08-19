@@ -80,10 +80,6 @@
 ;; ;; Map files to modes
 ;; (require 'mode-mappings)
 
-;; ;; Annoying arrows mode
-;; (require 'annoying-arrows-mode)
-;; ;;(global-annoying-arrows-mode)
-
 ;; ;; Functions (load all files in defuns-dir)
 ;; (setq defuns-dir (expand-file-name "defuns" dotfiles-dir))
 ;; (dolist (file (directory-files defuns-dir t "\\w+"))
@@ -96,7 +92,6 @@
 ;; (require 'delsel)
 ;; (require 'jump-char)
 ;; (require 'eproject)
-;; (require 'wgrep)
 ;; (require 'smart-forward)
 
 ;; ;; Predictive abbreviations while typing - an experiment (tab to complete)
@@ -106,22 +101,6 @@
 ;; ;; Fill column indicator
 ;; (require 'fill-column-indicator)
 ;; (setq fci-rule-color "#111122")
-
-;; ;; Browse kill ring
-;; (require 'browse-kill-ring)
-;; (setq browse-kill-ring-quit-action 'save-and-restore)
-
-;; ;; Setup key bindings
-;; (require 'key-bindings)
-
-;; ;; Run at full power please
-;; (put 'downcase-region 'disabled nil)
-;; (put 'narrow-to-region 'disabled nil)
-
-;; ;; Diminish modeline clutter
-;; (require 'diminish)
-;; (diminish 'wrap-region-mode)
-;; (diminish 'yas/minor-mode)
 
 ;; ;; Setup slime-js if it is installed
 ;; (add-hook 'after-init-hook

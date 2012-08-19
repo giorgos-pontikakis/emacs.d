@@ -3,7 +3,7 @@
 (setq org-capture-templates
       '(("s" "Scrooge")
 
-        ("sb" "Bugs" entry (file+headline "/Dropbox/org/scrooge.org" "Bugs")
+        ("sb" "Bugs" entry (file+headline "~/Dropbox/org/scrooge.org" "Bugs")
          "** %?
 %t - %f" :empty-lines 1)
 
