@@ -17,6 +17,7 @@
  '(grep-find-template "find . <X> -type f <F> -exec grep <C> -nH -E -e <R> {} +")
  '(hippie-expand-ignore-buffers (quote ("^ \\*.*\\*$" dired-mode REPL)))
  '(hippie-expand-try-functions-list (quote (yas/hippie-try-expand try-complete-file-name-partially try-complete-file-name try-expand-all-abbrevs try-expand-dabbrev try-expand-dabbrev-all-buffers try-expand-dabbrev-from-kill try-complete-lisp-symbol-partially try-complete-lisp-symbol)))
+ '(hs-hide-comments-when-hiding-all nil)
  '(ido-auto-merge-work-directories-length -1)
  '(ido-cannot-complete-command (quote ido-next-match))
  '(ido-case-fold t)
