@@ -4,11 +4,11 @@
       '(("s" "Scrooge")
 
         ("sb" "Bugs" entry (file+headline "~/Dropbox/org/scrooge.org" "Bugs")
-         "** %?
+         "** TODO %?
 %t - %f" :empty-lines 1)
 
         ("sc" "Code" entry (file+headline "~/Dropbox/org/scrooge.org" "Code")
-         "** %?
+         "** TODO %?
 %t - %f" :empty-lines 1)
 
         ("si" "Ideas"
@@ -17,7 +17,7 @@
 %t - %f" :empty-lines 1)
 
         ("a" "System Administration" entry (file+headline "~/Dropbox/org/sysadmin.org" "Misc")
-         "** %?
+         "** TODO %?
 %t" :empty-lines 1)
 
         ("n" "Notes" entry (file+headline "~/Dropbox/org/notes.org" "Random")
@@ -25,7 +25,7 @@
 %t" :empty-lines 1)
 
         ("e" "Extherm" entry (file+headline "~/Dropbox/org/extherm.org" "Tasks")
-         "** %?
+         "** TODO %?
 %t" :empty-lines 1)))
 
 ;;; Disputed keys (conflicts with CUA mode)
