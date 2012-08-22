@@ -5,6 +5,13 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(calendar-date-style (quote european))
+ '(calendar-day-abbrev-array ["Κυ" "Δε" "Τρ" "Τε" "Πε" "Πα" "Σα"])
+ '(calendar-day-name-array ["Κυριακή" "Δευτέρα" "Τριτη" "Τετάρτη" "Πέμπτη" "Παρασκευή" "Σάββατο"])
+ '(calendar-latitude 40.6333)
+ '(calendar-longitude 22.95)
+ '(calendar-month-abbrev-array ["Ιαν" "Φεβ" "Μαρ" "Απρ" "Μαϊ" "Ιουν" "Ιουλ" "Αύγ" "Σεπ" "Οκτ" "Νοε" "Δεκ"])
+ '(calendar-month-name-array ["Ιανουάριος" "Φεβρουάριος" "Μάρτιος" "Απρίλιος" "Μάιος" "Ιούνιος" "Ιούλιος" "Αύγουστος" "Σεπτέμβριος" "Οκτώβριος" "Νοέμβριος" "Δεκέμβριος"])
  '(cua-enable-cua-keys nil)
  '(cua-enable-cursor-indications t)
  '(cua-mode t nil (cua-base))
@@ -35,6 +42,8 @@
  '(ido-record-commands t)
  '(ido-show-dot-for-dired t)
  '(js-indent-level 3)
+ '(org-display-custom-times t)
+ '(org-time-stamp-custom-formats (quote ("<%a %d/%m/%y>" . "<%a %d/%m/%y %H:%M>")))
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(sql-pop-to-buffer-after-send-region t)
  '(sql-product (quote postgres))

@@ -70,6 +70,9 @@
       org-enforce-todo-dependencies t
       org-insert-heading-respect-content t)
 
+(setq org-todo-keywords
+      '((sequence "URGENT" "TODO" "|" "DONE")))
+
 
 (defun org-key-bindings ()
   (interactive)
