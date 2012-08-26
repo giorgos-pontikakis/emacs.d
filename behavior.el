@@ -58,7 +58,7 @@
 (set-selection-coding-system 'utf-8)
 
 (set-default-coding-systems 'utf-8)
-(setq current-language-environment "UTF-8")
+(setq current-language-environment "Greek")
 (setq default-input-method "greek")
 (prefer-coding-system 'utf-8)
 

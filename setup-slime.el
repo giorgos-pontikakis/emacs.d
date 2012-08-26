@@ -30,7 +30,7 @@
       slime-complete-symbol-function 'slime-fuzzy-complete-symbol
       slime-startup-animation nil
       slime-header-line-p t
-      slime-load-failed-fasl t
+      slime-load-failed-fasl 'always
       slime-repl-history-remove-duplicates nil
       slime-repl-history-trim-whitespaces t
       slime-setup-autodoc-use-multiline-p t)

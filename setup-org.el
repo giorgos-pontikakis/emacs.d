@@ -5,24 +5,24 @@
 
         ("sb" "Bugs" entry (file+headline "~/Dropbox/org/scrooge.org" "Bugs")
          "** TODO %?
-%t - %f" :empty-lines 1)
+%t" :empty-lines 1)
 
         ("sc" "Code" entry (file+headline "~/Dropbox/org/scrooge.org" "Code")
          "** TODO %?
-%t - %f" :empty-lines 1)
+" :empty-lines 1)
 
         ("si" "Ideas"
          entry (file+headline "~/Dropbox/org/scrooge.org" "Ideas")
          "** %?
-%t - %f" :empty-lines 1)
+" :empty-lines 1)
 
         ("a" "System Administration" entry (file+headline "~/Dropbox/org/sysadmin.org" "Misc")
-         "** TODO %?
-%t" :empty-lines 1)
+         "** %?
+" :empty-lines 1)
 
         ("n" "Notes" entry (file+headline "~/Dropbox/org/notes.org" "Random")
          "** %?
-%t" :empty-lines 1)
+" :empty-lines 1)
 
         ("e" "Extherm" entry (file+headline "~/Dropbox/org/extherm.org" "Tasks")
          "** TODO %?
@@ -63,6 +63,10 @@
 (setq org-refile-targets '((org-agenda-files . (:level . 1)))
       org-outline-path-complete-in-steps nil
       org-refile-use-outline-path 'file)
+
+;;; Timestamps
+(setq org-display-custom-times t)
+(setq org-time-stamp-custom-formats '("<%a %d/%m/%y>" . "<%a %d/%m/%y %H:%M>"))
 
 ;;; Misc
 (setq org-archive-location ".%s_archive::"

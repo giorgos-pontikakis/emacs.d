@@ -43,8 +43,7 @@
  '(ido-show-dot-for-dired t)
  '(js-indent-level 3)
  '(minibuffer-prompt-properties (quote (read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)))
- '(org-display-custom-times t)
- '(org-time-stamp-custom-formats (quote ("<%a %d/%m/%y>" . "<%a %d/%m/%y %H:%M>")))
+
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(sql-pop-to-buffer-after-send-region t)
  '(sql-product (quote postgres))
