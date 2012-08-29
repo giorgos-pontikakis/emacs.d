@@ -46,6 +46,7 @@
 
 (make-variable-buffer-local 'lisp-indent-function)
 (setq lisp-indent-function 'common-lisp-indent-function)
+(put 'iter 'common-lisp-indent-function '(&lambda 6)) ; iter modification
 
 (setq common-lisp-style-default "modern"
       lisp-lambda-list-keyword-alignment t

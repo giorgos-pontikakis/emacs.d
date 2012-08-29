@@ -20,6 +20,9 @@
  '(cua-read-only-cursor-color "snow")
  '(cua-rectangle-mark-key [S-return])
  '(find-ls-option (quote ("-exec ls -lda {} +" . "-lda")))
+ '(google-translate-default-source-language "en")
+ '(google-translate-default-target-language "el")
+ '(google-translate-enable-ido-completion t)
  '(grep-command "grep -nH -E -e ")
  '(grep-find-template "find . <X> -type f <F> -exec grep <C> -nH -E -e <R> {} +")
  '(hippie-expand-ignore-buffers (quote ("^ \\*.*\\*$" dired-mode REPL)))
@@ -43,7 +46,6 @@
  '(ido-show-dot-for-dired t)
  '(js-indent-level 3)
  '(minibuffer-prompt-properties (quote (read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)))
-
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(sql-pop-to-buffer-after-send-region t)
  '(sql-product (quote postgres))
