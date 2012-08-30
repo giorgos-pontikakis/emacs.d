@@ -20,7 +20,7 @@
          "** %?
 " :empty-lines 1)
 
-        ("n" "Notes" entry (file+headline "~/Dropbox/org/notes.org" "Random")
+        ("p" "Personal" entry (file+headline "~/Dropbox/org/personal.org" "Notes")
          "** %?
 " :empty-lines 1)
 
