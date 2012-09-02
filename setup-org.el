@@ -65,18 +65,18 @@
       org-refile-use-outline-path 'file)
 
 ;;; Timestamps
-(setq org-display-custom-times t)
+(setq org-display-custom-times nil)
 (setq org-time-stamp-custom-formats '("<%a %d/%m/%y>" . "<%a %d/%m/%y %H:%M>"))
 
 ;;; Misc
 (setq org-archive-location ".%s_archive::"
-      org-default-notes-file "~/Dropbox/org/notes.org"
+      org-default-notes-file "~/Dropbox/org/personal.org"
       org-enforce-todo-dependencies t
-      org-insert-heading-respect-content t)
+      org-insert-heading-respect-content t
+      org-use-speed-commands t)
 
 (setq org-todo-keywords
-      '((sequence "URGENT" "TODO" "|" "DONE")))
-
+      '((sequence "URGENT" "TODO" "DELAYED" "|" "DONE" "CANCELED")))
 
 (defun org-key-bindings ()
   (interactive)

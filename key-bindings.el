@@ -177,6 +177,8 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "C-c c") 'org-capture)
   (define-key global-map (kbd "C-c a") 'org-agenda)
   (define-key global-map (kbd "C-c b") 'org-iswitchb)
+  (define-key global-map (kbd "S-<f10>") 'org-capture)
+  (define-key global-map (kbd "S-<f11>") 'org-agenda)
   (define-key global-map (kbd "S-<f12>") 'org-iswitchb)
 
   ;; Emacs Lisp
