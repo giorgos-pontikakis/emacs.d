@@ -57,6 +57,12 @@
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 
 
+(defun maybe-tramp-cleanup-all-buffers ()
+  (when (fboundp 'tramp-cleanup-all-buffers)
+    (tramp-cleanup-all-buffers)))
+
+(add-to-list 'kill-emacs-hook 'maybe-tramp-cleanup-all-buffers)
+
 ;; EMACS SERVER
 
 (require 'server)

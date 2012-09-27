@@ -56,6 +56,19 @@ and takes care of the final sigma."
   (let ((result (upcase-gr (delete-and-extract-region beg end))))
     (save-excursion (insert result))))
 
+(defun find-alternate-file-with-sudo ()
+  (interactive)
+  (let ((fname (or buffer-file-name
+                   dired-directory)))
+    (when fname
+      (let ((user (read-from-minibuffer "User: " "root")))
+        (if (string-match (concat "^/sudo:" user "@localhost:") fname)
+            (setq fname (replace-regexp-in-string
+                         (concat "^/sudo:" user "@localhost:") ""
+                         fname))
+          (setq fname (concat "/sudo:root@localhost:" fname))))
+      (find-alternate-file fname))))
 
+(define-key global-map (kbd "C-x M-v") 'find-alternate-file-with-sudo)
 
 (provide 'hacks)

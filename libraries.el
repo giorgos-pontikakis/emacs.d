@@ -22,8 +22,11 @@
 (setq ediff-window-setup-function 'ediff-setup-windows-plain)
 
 ;;; tramp
-(setq tramp-default-method "ssh")
-(setq tramp-copy-size-limit 1024)
+(require 'tramp)
+(setq tramp-default-method "ssh"
+      tramp-copy-size-limit 1024
+      ido-enable-tramp-completion nil
+      tramp-auto-save-directory "~/.emacs.d/auto-save-list")
 
 ;;; expand-region
 (require 'expand-region)
@@ -90,5 +93,7 @@
 (setq browse-kill-ring-highlight-current-entry t)
 (setq browse-kill-ring-quit-action 'save-and-restore)
 (global-set-key (kbd "C-c k") 'browse-kill-ring)
+
+
 
 (provide 'libraries)

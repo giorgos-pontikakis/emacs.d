@@ -36,7 +36,7 @@
  '(ido-default-file-method (quote selected-window))
  '(ido-enable-flex-matching t)
  '(ido-enable-last-directory-history t)
- '(ido-enable-tramp-completion nil)
+
  '(ido-enter-matching-directory (quote first))
  '(ido-everywhere t)
  '(ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" ".lx32fsl$" ".fasl$")))
