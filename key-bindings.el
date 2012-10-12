@@ -155,6 +155,7 @@ then signal an error, in the interest of preserving structure."
                            :background (face-background 'default)
                            :foreground (face-foreground 'default)
                            :font "-*-fixed-medium-r-normal-*-14-*-*-*-*-*-*-7")))
+
   (define-key global-map (kbd "<C-kp-4>")
     '(lambda ()
        (interactive)
@@ -162,6 +163,15 @@ then signal an error, in the interest of preserving structure."
                            :background (face-background 'default)
                            :foreground (face-foreground 'default)
                            :font "Droid Sans Mono-9")))
+
+  (define-key global-map (kbd "<C-kp-5>")
+    '(lambda ()
+       (interactive)
+       (set-face-attribute 'default nil
+                           :background (face-background 'default)
+                           :foreground (face-foreground 'default)
+                           :font "Inconsolata-8")))
+
   (define-key global-map (kbd "<C-kp-8>")
     '(lambda ()
        (interactive)
