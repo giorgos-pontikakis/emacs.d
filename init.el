@@ -40,11 +40,6 @@
 
 ;;; HOOKS
 
-(add-hook 'makefile-mode-hook (lambda ()
-                                (setq indent-tabs-mode t)))
-
-(add-hook 'before-save-hook 'whitespace-cleanup)
-
 (add-hook 'emacs-lisp-mode-hook (lambda ()
                                   (enable-paredit-mode)
                                   (hs-minor-mode t)))

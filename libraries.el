@@ -34,7 +34,7 @@
 
 ;;; yasnippet
 (require 'yasnippet)
-(setq yas/root-directory '("~/.emacs.d/snippets" "~/.emacs.d/elpa/yasnippet-0.6.1/snippets"))
+(setq yas/root-directory '("~/.emacs.d/snippets"))
 (mapc #'yas/load-directory yas/root-directory)
 (yas/global-mode 1)
 (setq yas/prompt-functions '(yas/ido-prompt

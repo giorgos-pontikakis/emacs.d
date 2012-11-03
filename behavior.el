@@ -120,9 +120,6 @@ read-only."
 ;;; EDITING
 ;;; ------------------------------------------------------------
 
-;;; indent-tabs-mode becomes buffer-local when set in any way.
-(set-default 'indent-tabs-mode nil)
-
 ;;; Change pasting behavior. Normally, it pastes where the mouse
 ;;; is at, which is not necessarily where the cursor is. This changes
 ;;; things so all pastes, whether they be middle-click or C-y or menu,
