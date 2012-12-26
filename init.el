@@ -35,6 +35,7 @@
 (require 'appearance)
 (require 'behavior)
 (require 'key-bindings)
+(require 'white)
 (require 'hacks)
 
 

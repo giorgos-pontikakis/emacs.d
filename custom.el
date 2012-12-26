@@ -36,7 +36,6 @@
  '(ido-default-file-method (quote selected-window))
  '(ido-enable-flex-matching t)
  '(ido-enable-last-directory-history t)
-
  '(ido-enter-matching-directory (quote first))
  '(ido-everywhere t)
  '(ido-ignore-files (quote ("\\`CVS/" "\\`#" "\\`.#" "\\`\\.\\./" "\\`\\./" ".lx32fsl$" ".fasl$")))
@@ -44,7 +43,7 @@
  '(ido-mode (quote both) nil (ido))
  '(ido-record-commands t)
  '(ido-show-dot-for-dired t)
- '(js-indent-level 3)
+ '(js-indent-level 2)
  '(minibuffer-prompt-properties (quote (read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)))
  '(safe-local-variable-values (quote ((Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(sql-pop-to-buffer-after-send-region t)
