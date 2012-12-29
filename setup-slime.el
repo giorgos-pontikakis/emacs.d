@@ -44,14 +44,19 @@
 
 ;;; Indentation
 
+(define-common-lisp-style "gnp"
+  (:inherit "basic")
+  (:variables
+   (lisp-lambda-list-keyword-alignment t)
+   (lisp-lambda-list-keyword-parameter-alignment t)
+   (lisp-lambda-list-keyword-parameter-indentation 0)
+   (lisp-loop-indent-subclauses t)))
+
+(setq common-lisp-style-default "gnp")
+
 (make-variable-buffer-local 'lisp-indent-function)
 (setq lisp-indent-function 'common-lisp-indent-function)
 (put 'iter 'common-lisp-indent-function '(&lambda 6)) ; iter modification
-
-(setq common-lisp-style-default "modern"
-      lisp-lambda-list-keyword-alignment t
-      lisp-lambda-list-keyword-parameter-alignment t
-      lisp-lambda-list-keyword-parameter-indentation 4)
 
 
 ;;; Key bindings and faces
@@ -88,7 +93,7 @@
   (define-key slime-repl-mode-map (kbd "M-s") nil)
   (define-key slime-repl-mode-map (kbd "M-<RET>") 'newline-and-indent)
 
-  (define-key slime-repl-mode-map (kbd "C-;") 'slime-insert-balanced-comments) ;
+  (define-key slime-repl-mode-map (kbd "C-;") 'slime-insert-balanced-comments)
   (define-key slime-repl-mode-map (kbd "C-M-;") 'slime-remove-balanced-comments)
 
   (define-key slime-repl-mode-map (kbd "C-M-S-<up>") 'slime-repl-previous-prompt)
