@@ -12,8 +12,8 @@
 (global-visual-line-mode 0)
 
 ;; window appearance
-(when window-system
-  (menu-bar-mode -1)
+(menu-bar-mode -1)
+(when (display-graphic-p)
   (scroll-bar-mode -1)
   (setq frame-title-format '(buffer-file-name "emacs: %f" ("%b")))
   (tool-bar-mode -1)

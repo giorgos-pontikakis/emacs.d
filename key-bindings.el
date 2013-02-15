@@ -92,7 +92,8 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "C-x <delete>") 'delete-blank-lines)
 
   ;; Brackets
-  (define-key global-map (kbd "M-[") 'bracket-wrap-sexp)
+  (when (display-graphic-p)
+    (define-key global-map (kbd "M-[") 'bracket-wrap-sexp))
   (modify-syntax-entry ?\[ "(]" lisp-mode-syntax-table)
   (modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
 
