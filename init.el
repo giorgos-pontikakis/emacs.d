@@ -63,9 +63,10 @@
 
 ;; EMACS SERVER
 
-(require 'server)
-(unless (server-running-p)
-  (server-start))
+(when (display-graphic-p)
+  (require 'server)
+  (unless (server-running-p)
+    (server-start)))
 
 
 
