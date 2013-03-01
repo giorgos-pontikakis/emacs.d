@@ -1,9 +1,9 @@
 ;;; Slime core functionality
 (setq slime-lisp-implementations
-      `((sbcl ("/usr/bin/sbcl"))
-        (slime ("/usr/bin/sbcl" "--core" "/home/gnp/sbcl-slime.core"))
-        (web ("/usr/bin/sbcl" "--core" "/home/gnp/sbcl-web.core"))
-        (clisp ("/usr/bin/clisp"))))
+      `((sbcl ("sbcl"))
+        (slime ("sbcl" "--core" "/home/gnp/sbcl-slime.core"))
+        (web ("sbcl" "--core" "/home/gnp/sbcl-web.core"))
+        (clisp ("clisp"))))
 
 ;;; Slime via quicklisp
 (load (expand-file-name "~/quicklisp/slime-helper.el"))
