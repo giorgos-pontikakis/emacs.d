@@ -16,12 +16,12 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
-;;; Keep emacs Custom-settings in separate file
+;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" dotfiles-dir))
 (load custom-file)
 
 
-;; LIBRARIES
+;;; LIBRARIES
 
 (require 'libraries)
 
@@ -36,12 +36,6 @@
 (require 'setup-redshank)
 (require 'setup-dired)
 (require 'setup-org)
-
-
-;;; CUSTOM tool
-;; Keep emacs Custom-settings in separate file
-(setq custom-file (expand-file-name "custom.el" dotfiles-dir))
-(load custom-file)
 
 
 ;;; HOOKS

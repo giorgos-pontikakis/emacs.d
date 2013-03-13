@@ -5,21 +5,10 @@
   (backward-up-list)
   (mark-sexp))
 
-;; (defun forward-sexp-mark ()
-;;   (interactive)
-;;   (cua-set-mark)
-;;   (forward-sexp)
-;;   (cua-set-mark))
-
-;; (defun backward-sexp-mark ()
-;;   (interactive)
-;;   (cua-set-mark)
-;;   (backward-sexp))
-
 (defun forward-sexp-kill-ring-save ()
   (interactive)
   (let ((beg (point)))
-    (cua-set-mark)
+    (activate-mark)
     (forward-sexp)
     (kill-ring-save beg (point))
     (backward-sexp)))
@@ -45,10 +34,12 @@ then signal an error, in the interest of preserving structure."
 (defun global-key-bindings ()
   (interactive)
 
-  ;; I don't need to kill emacs that easily
-  ;; the mnemonic is C-x REALLY QUIT
+  ;; I don't need to kill emacs that easily -- the mnemonic is C-x REALLY QUIT
   (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
   (global-set-key (kbd "C-x C-c") 'delete-frame)
+
+  ;; Reserved for the OS key binding
+  (global-unset-key (kbd "M-SPC"))
 
   ;; Text visibility
   (define-key global-map (kbd "C-<kp-add>") 'text-scale-increase)
@@ -130,7 +121,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "<f8>") 'deft)
 
   (define-key global-map (kbd "M-<f5>") 'calendar)
-  (define-key global-map (kbd "<M-f7>") 'find-dired)
+  (define-key global-map (kbd "M-<f7>") 'find-dired)
   (define-key global-map (kbd "M-<f8>") 'magit-status)
 
   ;; C-<f5-f8>: appearance

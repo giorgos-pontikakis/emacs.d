@@ -41,6 +41,7 @@
 
 (defun dired-key-bindings ()
   (interactive)
+  (define-key dired-mode-map (kbd "M-o") nil)
   (define-key dired-mode-map [remap toggle-read-only] nil)
   (define-key dired-mode-map (kbd "C-x M-q") 'dired-toggle-read-only))
 
