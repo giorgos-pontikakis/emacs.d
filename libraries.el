@@ -1,4 +1,3 @@
-
 ;;; BUILT-IN LIBRARIES OR PACKAGES FROM REPOS
 
 ;;; package module
@@ -8,7 +7,7 @@
 (package-initialize)
 
 ;;; common lisp extensions
-(require 'cl)
+(require 'cl-lib)
 
 ;;; uniquify
 (require 'uniquify)
@@ -70,9 +69,12 @@
 (require 'wgrep)
 (setq wgrep-enable-key "")
 
+;;; Undo-tree
+(require 'undo-tree)
+(global-undo-tree-mode)
+
 ;;; Misc from ELPA
 (autoload 'regex-tool "regex-tool" t)
-(require 'redo+)
 (autoload 'goto-last-change "goto-last-change"
   "Set point to the position of the last change." t)
 

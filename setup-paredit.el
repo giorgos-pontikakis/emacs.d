@@ -38,8 +38,8 @@
   (define-key paredit-mode-map (kbd "M-<right>") 'paredit-forward)
   (define-key paredit-mode-map (kbd "C-M-<left>") 'beginning-of-defun)
   (define-key paredit-mode-map (kbd "C-M-<right>") 'end-of-defun)
-  (define-key global-map (kbd "M-S-<left>") 'backward-sexp) ;; revert to native sexp commands
-  (define-key global-map (kbd "M-S-<right>") 'forward-sexp) ;; so that shift-mode-selection works
+  ;; (define-key global-map (kbd "M-S-<left>") 'backward-sexp) ;; revert to native sexp commands
+  ;; (define-key global-map (kbd "M-S-<right>") 'forward-sexp) ;; so that shift-mode-selection works
 
   ;; Take back M-<down> and M-<up>
   ;; Extra to paredit defaults C-M-u and C-M-d, rely on C-M-( and C-M-) for barfage

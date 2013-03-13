@@ -5,11 +5,24 @@
   (backward-up-list)
   (mark-sexp))
 
+;; (defun forward-sexp-mark ()
+;;   (interactive)
+;;   (cua-set-mark)
+;;   (forward-sexp)
+;;   (cua-set-mark))
+
+;; (defun backward-sexp-mark ()
+;;   (interactive)
+;;   (cua-set-mark)
+;;   (backward-sexp))
+
 (defun forward-sexp-kill-ring-save ()
   (interactive)
   (let ((beg (point)))
-    (forward-sexp-mark)
-    (kill-ring-save beg (point))))
+    (cua-set-mark)
+    (forward-sexp)
+    (kill-ring-save beg (point))
+    (backward-sexp)))
 
 (defun bracket-wrap-sexp (&optional n)
   "Wrap the following S-expression in a list.
@@ -32,6 +45,11 @@ then signal an error, in the interest of preserving structure."
 (defun global-key-bindings ()
   (interactive)
 
+  ;; I don't need to kill emacs that easily
+  ;; the mnemonic is C-x REALLY QUIT
+  (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
+  (global-set-key (kbd "C-x C-c") 'delete-frame)
+
   ;; Text visibility
   (define-key global-map (kbd "C-<kp-add>") 'text-scale-increase)
   (define-key global-map (kbd "C-<kp-subtract>") 'text-scale-decrease)
@@ -41,8 +59,9 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "M-<end>") 'hs-show-all)
 
   ;; Undo, Redo, goto-last-change
-  (define-key global-map (kbd "C-z") 'undo)
-  (define-key global-map (kbd "M-z") 'redo)
+  (define-key global-map (kbd "C-z") 'undo-tree-undo)
+  (define-key global-map (kbd "M-z") 'undo-tree-redo)
+  (define-key global-map (kbd "C-M-z") 'undo-tree-visualize)
   (define-key global-map (kbd "C-x l") 'goto-last-change)
   (define-key global-map (kbd "C-x M-f") 'view-file)
 
@@ -62,6 +81,7 @@ then signal an error, in the interest of preserving structure."
   ;; Movement and region handling
   (define-key global-map (kbd "S-<backspace>") 'join-line)
   (define-key global-map (kbd "C-<tab>") 'other-window)
+  (define-key global-map (kbd "M-o") 'other-window)
   (define-key global-map (kbd "C-S-<iso-lefttab>") (lambda ()
                                                      (interactive)
                                                      (other-window -1)))

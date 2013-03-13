@@ -1,4 +1,3 @@
-
 ;;; PATHS
 
 ;; Set path to .emacs.d
@@ -17,14 +16,20 @@
   (when (file-directory-p project)
     (add-to-list 'load-path project)))
 
-;; Keep emacs Custom-settings in separate file
+;;; Keep emacs Custom-settings in separate file
 (setq custom-file (expand-file-name "custom.el" dotfiles-dir))
 (load custom-file)
 
 
-;;; LIBRARIES
+;; LIBRARIES
 
 (require 'libraries)
+
+(require 'appearance)
+(require 'behavior)
+(require 'key-bindings)
+(require 'white)
+(require 'hacks)
 
 (require 'setup-slime)
 (require 'setup-paredit)
@@ -32,11 +37,11 @@
 (require 'setup-dired)
 (require 'setup-org)
 
-(require 'appearance)
-(require 'behavior)
-(require 'key-bindings)
-(require 'white)
-(require 'hacks)
+
+;;; CUSTOM tool
+;; Keep emacs Custom-settings in separate file
+(setq custom-file (expand-file-name "custom.el" dotfiles-dir))
+(load custom-file)
 
 
 ;;; HOOKS
