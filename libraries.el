@@ -96,6 +96,13 @@
 (setq browse-kill-ring-quit-action 'save-and-restore)
 (global-set-key (kbd "C-c k") 'browse-kill-ring)
 
+;;; which-func
+(require 'which-func)
+(add-to-list 'which-func-modes 'org-mode)
+(which-func-mode 1)
 
+;;; spelling
+;;; For greek, aspell-el must be present in the system
+(setq-default ispell-program-name "aspell")
 
 (provide 'libraries)

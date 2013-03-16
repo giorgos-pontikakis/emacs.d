@@ -31,6 +31,10 @@ then signal an error, in the interest of preserving structure."
     (backward-char))
   (save-excursion (backward-up-list) (indent-sexp)))
 
+(defun previous-window ()
+  (interactive)
+  (other-window -1))
+
 (defun global-key-bindings ()
   (interactive)
 
@@ -73,9 +77,8 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "S-<backspace>") 'join-line)
   (define-key global-map (kbd "C-<tab>") 'other-window)
   (define-key global-map (kbd "M-o") 'other-window)
-  (define-key global-map (kbd "C-S-<iso-lefttab>") (lambda ()
-                                                     (interactive)
-                                                     (other-window -1)))
+  (define-key global-map (kbd "C-S-<iso-lefttab>") 'previous-window)
+  (define-key global-map (kbd "M-O") 'previous-window)
 
   (define-key global-map (kbd "C-<delete>") 'kill-word)
   (define-key global-map (kbd "M-<delete>") 'kill-sexp)
@@ -112,16 +115,18 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "<f1>") 'slime-selector)
   (define-key global-map (kbd "<f2>") 'occur)
   (define-key global-map (kbd "<f3>") 'query-replace)
-  (define-key global-map (kbd "<f4>") 'rgrep)
+  (define-key global-map (kbd "<f4>") 'isearch-forward-word)
 
-  ;; f5-f8: programs
-  (define-key global-map (kbd "<f5>") 'calc)
+  ;; f5-f8: find/grep
+  (define-key global-map (kbd "<f5>") 'rgrep)
   (define-key global-map (kbd "<f6>") 'find-grep-dired)
   (define-key global-map (kbd "<f7>") 'find-name-dired)
-  (define-key global-map (kbd "<f8>") 'deft)
+  (define-key global-map (kbd "<f8>") 'find-dired)
 
-  (define-key global-map (kbd "M-<f5>") 'calendar)
-  (define-key global-map (kbd "M-<f7>") 'find-dired)
+  ;; C-<f5-f8>: programs
+  (define-key global-map (kbd "M-<f5>") 'calc)
+  (define-key global-map (kbd "M-<f6>") 'calendar)
+  (define-key global-map (kbd "M-<f7>") 'gnus-other-frame)
   (define-key global-map (kbd "M-<f8>") 'magit-status)
 
   ;; C-<f5-f8>: appearance
