@@ -31,7 +31,7 @@ then signal an error, in the interest of preserving structure."
     (backward-char))
   (save-excursion (backward-up-list) (indent-sexp)))
 
-(defun previous-window ()
+(defun other-window-previous ()
   (interactive)
   (other-window -1))
 
@@ -77,8 +77,8 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "S-<backspace>") 'join-line)
   (define-key global-map (kbd "C-<tab>") 'other-window)
   (define-key global-map (kbd "M-o") 'other-window)
-  (define-key global-map (kbd "C-S-<iso-lefttab>") 'previous-window)
-  (define-key global-map (kbd "M-O") 'previous-window)
+  (define-key global-map (kbd "C-S-<iso-lefttab>") 'other-window-previous)
+  (define-key global-map (kbd "M-O") 'other-window-previous)
 
   (define-key global-map (kbd "C-<delete>") 'kill-word)
   (define-key global-map (kbd "M-<delete>") 'kill-sexp)
