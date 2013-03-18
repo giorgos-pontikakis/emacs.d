@@ -61,7 +61,7 @@
 
 ;;; Key bindings and faces
 
-(defun slime-key-bindings ()
+(defun gnp-slime-key-bindings ()
   (interactive)
   (define-key slime-mode-map (kbd "C-M-q") 'slime-reindent-defun)
   (define-key slime-mode-map (kbd "<f9>") 'slime-compile-defun)
@@ -86,7 +86,7 @@
                                          (interactive)
                                          (slime 'web))))
 
-(defun repl-key-bindings ()
+(defun gnp-repl-key-bindings ()
   (interactive)
   (define-key slime-repl-mode-map (kbd "C-M-q") 'slime-reindent-defun)
   (define-key slime-repl-mode-map (kbd "M-r") nil)
@@ -99,7 +99,7 @@
   (define-key slime-repl-mode-map (kbd "C-M-S-<up>") 'slime-repl-previous-prompt)
   (define-key slime-repl-mode-map (kbd "C-M-S-<down>") 'slime-repl-next-prompt))
 
-(defun slime-faces ()
+(defun gnp-slime-faces ()
   (interactive)
   (set-face-attribute 'slime-highlight-face nil :underline "lightgreen")
   (set-face-attribute 'slime-note-face nil :underline t))
@@ -109,8 +109,8 @@
 
 (eval-after-load 'slime
   '(progn
-     (slime-key-bindings)
-     (repl-key-bindings)
-     (slime-faces)))
+     (gnp-slime-key-bindings)
+     (gnp-repl-key-bindings)
+     (gnp-slime-faces)))
 
 (provide 'setup-slime)

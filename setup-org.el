@@ -1,4 +1,3 @@
-
 ;;; capture
 (setq org-capture-templates
       '(("s" "Scrooge")
@@ -46,8 +45,10 @@
       org-cycle-separator-lines 1)
 
 ;;; Org Structure
-(setq org-indent-mode t
-      org-startup-indented t
+(setq org-indent-mode nil
+      org-adapt-indentation t
+      org-hide-leading-stars t
+      org-odd-levels-only t
       org-yank-adjusted-subtrees t
       org-yank-folded-subtrees nil
       org-catch-invisible-edits 'show
@@ -78,13 +79,13 @@
 (setq org-todo-keywords
       '((sequence "URGENT" "TODO" "DELAYED" "|" "DONE" "CANCELED")))
 
-(defun org-key-bindings ()
+(defun gnp-org-key-bindings ()
   (interactive)
   (define-key org-mode-map (kbd "C-M-<tab>") 'org-force-cycle-archived)
   (define-key org-mode-map (kbd "C-<tab>") nil))
 
 (eval-after-load "org"
-  '(org-key-bindings))
+  '(gnp-org-key-bindings))
 
 
 

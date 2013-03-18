@@ -3,15 +3,18 @@
                         '(("(\\(defpage\\(\\s_\\|\\w\\)*\\)"
                            1 font-lock-keyword-face)))
 
+
+
 ;;; Better indentation of html keywords (for CL-WHO)
-(defun nm-cl-indent (symbol indent)
+
+(defun gnp-cl-indent (symbol indent)
   "Set the indentation of SYMBOL to INDENT."
   (put symbol 'common-lisp-indent-function
        (if (symbolp indent)
            (get indent 'common-lisp-indent-function)
          indent)))
 
-(defvar *nm-cl-html-symbols*
+(defvar *gnp-cl-html-symbols*
   (list :a :abbr :acronym :address :applet :area :article :aside :audio :b
         :base :basefont :bdi :bdo :big :blockquote :body :br :button :canvas
         :caption :center :cite :code :col :colgroup :command :datalist :dd
@@ -25,10 +28,10 @@
         :tbody :td :textarea :tfoot :th :thead :time :title :tr :track :tt :u
         :ul :var :video :wbr))
 
-(dolist (symbol *nm-cl-html-symbols*)
-  (nm-cl-indent symbol '(&body)))
+(dolist (symbol *gnp-cl-html-symbols*)
+  (gnp-cl-indent symbol '(&body)))
 
-(defun upcase-gr (string)
+(defun gnp-upcase-gr (string)
   "Upcase a string and converted accented characters to
 non-accented. Also take care of final sigma."
   (let ((result-string (upcase string)))
@@ -48,16 +51,16 @@ non-accented. Also take care of final sigma."
             (?\ΰ . ?\Ϋ)))
     result-string))
 
-(defun upcase-region-gr (beg end)
+(defun gnp-upcase-region-gr (beg end)
   "Like upcase-region, but respecting capitalization rules for
 the Greek language. Converts accented characters to non-accented
 and takes care of the final sigma."
   (interactive "r")
   (barf-if-buffer-read-only)
-  (let ((result (upcase-gr (delete-and-extract-region beg end))))
+  (let ((result (gnp-upcase-gr (delete-and-extract-region beg end))))
     (save-excursion (insert result))))
 
-(defun find-alternate-file-with-sudo ()
+(defun gnp-find-alternate-file-with-sudo ()
   (interactive)
   (let ((fname (or buffer-file-name
                    dired-directory)))
@@ -70,6 +73,36 @@ and takes care of the final sigma."
           (setq fname (concat "/sudo:root@localhost:" fname))))
       (find-alternate-file fname))))
 
-(define-key global-map (kbd "C-x M-v") 'find-alternate-file-with-sudo)
+(define-key global-map (kbd "C-x M-v") 'gnp-find-alternate-file-with-sudo)
+
+
+
+;;; Window splitting
+
+(defun gnp-split-window-sensibly (&optional window)
+  "This is a copy of split-window-sensibly, modified so that it
+tries to split windows first horizontally then vertically"
+  (let ((window (or window (selected-window))))
+    (or (and (window-splittable-p window t)
+             ;; Split window horizontally.
+             (with-selected-window window
+               (split-window-right)))
+        (and (window-splittable-p window)
+             ;; Split window vertically.
+             (with-selected-window window
+               (split-window-below)))
+        (and (eq window (frame-root-window (window-frame window)))
+             (not (window-minibuffer-p window))
+             ;; If WINDOW is the only window on its frame and is not the
+             ;; minibuffer window, try to split it horizontally disregarding
+             ;; the value of `split-width-threshold'.
+             (let ((split-width-threshold 0))
+               (when (window-splittable-p window t)
+                 (with-selected-window window
+                   (split-window-right))))))))
+
+(setq split-window-preferred-function 'gnp-split-window-sensibly)
+(setq split-width-threshold 150)
+
 
 (provide 'hacks)

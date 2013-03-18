@@ -1,11 +1,11 @@
 ;;; GENERAL KEY BINDINGS
 
-(defun backward-up-list-mark ()
+(defun gnp-backward-up-list-mark ()
   (interactive)
   (backward-up-list)
   (mark-sexp))
 
-(defun forward-sexp-kill-ring-save ()
+(defun gnp-forward-sexp-kill-ring-save ()
   (interactive)
   (let ((beg (point)))
     (activate-mark)
@@ -13,7 +13,7 @@
     (kill-ring-save beg (point))
     (backward-sexp)))
 
-(defun bracket-wrap-sexp (&optional n)
+(defun gnp-bracket-wrap-sexp (&optional n)
   "Wrap the following S-expression in a list.
 If a prefix argument N is given, wrap N S-expressions.
 Automatically indent the newly wrapped S-expression. As a special
@@ -31,7 +31,7 @@ then signal an error, in the interest of preserving structure."
     (backward-char))
   (save-excursion (backward-up-list) (indent-sexp)))
 
-(defun other-window-previous ()
+(defun gnp-other-window-previous ()
   (interactive)
   (other-window -1))
 
@@ -69,7 +69,7 @@ then signal an error, in the interest of preserving structure."
   ;; Miscellaneous commands
   (define-key global-map (kbd "M-/") 'hippie-expand)
   (define-key global-map (kbd "C-x 9") 'delete-other-windows-vertically)
-  (define-key global-map (kbd "C-x M-u") 'upcase-region-gr)
+  (define-key global-map (kbd "C-x M-u") 'gnp-upcase-region-gr)
   (define-key global-map (kbd "C-t") 'transpose-sexps)
   (define-key global-map (kbd "C-M-t") 'transpose-chars)
 
@@ -77,8 +77,8 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "S-<backspace>") 'join-line)
   (define-key global-map (kbd "C-<tab>") 'other-window)
   (define-key global-map (kbd "M-o") 'other-window)
-  (define-key global-map (kbd "C-S-<iso-lefttab>") 'other-window-previous)
-  (define-key global-map (kbd "M-O") 'other-window-previous)
+  (define-key global-map (kbd "C-S-<iso-lefttab>") 'gnp-other-window-previous)
+  (define-key global-map (kbd "M-O") 'gnp-other-window-previous)
 
   (define-key global-map (kbd "C-<delete>") 'kill-word)
   (define-key global-map (kbd "M-<delete>") 'kill-sexp)
@@ -87,7 +87,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "M-<backspace>") 'backward-kill-sexp)
 
   (define-key global-map (kbd "C-M-<insert>") 'append-next-kill)
-  (define-key global-map (kbd "M-<insert>") 'forward-sexp-kill-ring-save)
+  (define-key global-map (kbd "M-<insert>") 'gnp-forward-sexp-kill-ring-save)
   (define-key global-map (kbd "C-S-<insert>") 'yank-pop)
 
   (define-key global-map (kbd "M-<left>") 'backward-sexp)
@@ -100,7 +100,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "C-M-<up>") 'backward-paragraph)
   (define-key global-map (kbd "C-M-<down>") 'forward-paragraph)
 
-  (define-key global-map (kbd "S-M-<up>") 'backward-up-list-mark)
+  (define-key global-map (kbd "S-M-<up>") 'gnp-backward-up-list-mark)
   (define-key global-map (kbd "C-x <backspace>") (lambda ()
                                                    (interactive)
                                                    (just-one-space -1)))
@@ -108,7 +108,7 @@ then signal an error, in the interest of preserving structure."
 
   ;; Brackets
   (when (display-graphic-p)
-    (define-key global-map (kbd "M-[") 'bracket-wrap-sexp))
+    (define-key global-map (kbd "M-[") 'gnp-bracket-wrap-sexp))
   (modify-syntax-entry ?\[ "(]" lisp-mode-syntax-table)
   (modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
 
@@ -116,7 +116,7 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "<f1>") 'slime-selector)
   (define-key global-map (kbd "<f2>") 'occur)
   (define-key global-map (kbd "<f3>") 'query-replace)
-  (define-key global-map (kbd "<f4>") 'isearch-forward-word)
+  (define-key global-map (kbd "<f4>") 'isearch-forward-regexp)
 
   ;; f5-f8: find/grep
   (define-key global-map (kbd "<f5>") 'rgrep)

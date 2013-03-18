@@ -51,12 +51,16 @@
 (add-hook 'slime-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
 
-(defun maybe-tramp-cleanup-all-buffers ()
+(add-hook 'message-mode-hook 'turn-on-orgstruct++)
+
+
+(defun gnp-maybe-tramp-cleanup-all-buffers ()
   (when (fboundp 'tramp-cleanup-all-buffers)
     (tramp-cleanup-all-buffers)))
 
-(add-to-list 'kill-emacs-hook 'maybe-tramp-cleanup-all-buffers)
+(add-to-list 'kill-emacs-hook 'gnp-maybe-tramp-cleanup-all-buffers)
 
 
 
