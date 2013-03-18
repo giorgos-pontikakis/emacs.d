@@ -47,6 +47,7 @@
  '(js-indent-level 2)
  '(message-send-mail-function (quote smtpmail-send-it))
  '(minibuffer-prompt-properties (quote (read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)))
+ '(mm-text-html-renderer nil)
  '(safe-local-variable-values (quote ((Syntax . Common-Lisp) (Package . lift) (Package . LIFT) (Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
  '(send-mail-function (quote smtpmail-send-it))
  '(smtpmail-debug-info t)
@@ -69,6 +70,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-title-face ((t (:inherit font-lock-function-name-face))))
+ '(error ((t (:foreground "red"))))
  '(ido-first-match ((t (:foreground "tomato"))))
  '(ido-only-match ((((class color)) (:foreground "tomato"))))
  '(ido-subdir ((((min-colors 88) (class color)) (:foreground "gold2"))))

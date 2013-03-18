@@ -50,7 +50,7 @@
   (set-face-attribute 'font-lock-variable-name-face nil :foreground "PaleVioletRed1")
 
   ;;(set-face-attribute 'fringe nil :background "grey8" :foreground "grey 20")
-  (set-face-attribute 'header-line nil :inherit 'mode-line :background "grey" :foreground "black")
+  (set-face-attribute 'header-line nil :inherit 'mode-line :background "dark slate grey" :foreground "smokewhite")
   (set-face-attribute 'region nil :background "grey50" :foreground "black"))
 
 (defun gnp-light-colors ()

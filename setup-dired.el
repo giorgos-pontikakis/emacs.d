@@ -44,4 +44,6 @@
      (define-key wdired-mode-map (kbd "C-c ESC") nil)
      (define-key wdired-mode-map (kbd "C-c C-c") nil)))
 
+(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+
 (provide 'setup-dired)

@@ -82,6 +82,7 @@ then signal an error, in the interest of preserving structure."
 
   (define-key global-map (kbd "C-<delete>") 'kill-word)
   (define-key global-map (kbd "M-<delete>") 'kill-sexp)
+  (define-key global-map (kbd "M-k") 'kill-sexp)
   (define-key global-map (kbd "C-<backspace>") 'backward-kill-word)
   (define-key global-map (kbd "M-<backspace>") 'backward-kill-sexp)
 
@@ -187,7 +188,7 @@ then signal an error, in the interest of preserving structure."
        (set-face-attribute 'default nil
                            :background (face-background 'default)
                            :foreground (face-foreground 'default)
-                           :font "Inconsolata-8")))
+                           :font "Inconsolata-9")))
 
   (define-key global-map (kbd "<C-kp-8>")
     '(lambda ()
