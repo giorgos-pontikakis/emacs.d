@@ -51,7 +51,9 @@
 (add-hook 'slime-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
 
-(add-hook 'dired-mode-hook 'turn-on-gnus-dired-mode)
+(add-hook 'dired-mode-hook '(lambda ()
+                              (turn-on-gnus-dired-mode)
+                              (auto-revert-mode 1)))
 
 (add-hook 'message-mode-hook 'turn-on-orgstruct++)
 
