@@ -1,5 +1,6 @@
 ;;; ------------------------------------------------------------
 ;;; GNUS configuration file
+;;; ------------------------------------------------------------
 
 ;;; 1.1 Finding the news
 (setq gnus-select-method '(nnimap "gmail"
@@ -45,9 +46,6 @@
     ((message-news-p)
      (name "Giorgos Pontikakis")
      (address "giorgos.pontikakis.no-spam@gmail.com"))))
-
-
-
 
 
 
