@@ -76,6 +76,7 @@
   (define-key sldb-mode-map (kbd "C-M-<left>") 'slime-previous-presentation)
   (define-key sldb-mode-map (kbd "C-M-<right>") 'slime-next-presentation)
 
+  (define-key global-map (kbd "<f1>") 'slime-selector)
   (define-key global-map (kbd "C-c 1") (lambda ()
                                          (interactive)
                                          (slime 'sbcl)))
@@ -91,7 +92,8 @@
   (define-key slime-repl-mode-map (kbd "C-M-q") 'slime-reindent-defun)
   (define-key slime-repl-mode-map (kbd "M-r") nil)
   (define-key slime-repl-mode-map (kbd "M-s") nil)
-  (define-key slime-repl-mode-map (kbd "M-<RET>") 'newline-and-indent)
+  (define-key slime-repl-mode-map (kbd "<return>") 'slime-repl-newline-and-indent)
+  (define-key slime-repl-mode-map (kbd "M-<return>") 'slime-repl-return)
 
   (define-key slime-repl-mode-map (kbd "C-;") 'slime-insert-balanced-comments)
   (define-key slime-repl-mode-map (kbd "C-M-;") 'slime-remove-balanced-comments)
@@ -110,7 +112,8 @@
 (eval-after-load 'slime
   '(progn
      (gnp-slime-key-bindings)
-     (gnp-repl-key-bindings)
-     (gnp-slime-faces)))
+     (gnp-slime-faces)
+     (gnp-repl-key-bindings)))
+
 
 (provide 'setup-slime)

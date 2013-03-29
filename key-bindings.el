@@ -35,6 +35,23 @@ then signal an error, in the interest of preserving structure."
   (interactive)
   (other-window -1))
 
+(defun gnp-open-line-after ()
+  "Insert an empty line after the current line.
+Position the cursor at its beginning, according to the current mode."
+  (interactive)
+  (move-end-of-line nil)
+  (newline-and-indent))
+
+(defun gnp-open-line-before ()
+  "Insert an empty line before the current line.
+Position the cursor at its beginning, according to the current mode."
+  (interactive)
+  (move-beginning-of-line nil)
+  (newline-and-indent)
+  (previous-line)
+  (indent-for-tab-command))
+
+
 (defun global-key-bindings ()
   (interactive)
 
@@ -101,10 +118,14 @@ then signal an error, in the interest of preserving structure."
   (define-key global-map (kbd "C-M-<down>") 'forward-paragraph)
 
   (define-key global-map (kbd "S-M-<up>") 'gnp-backward-up-list-mark)
+
+  ;; Whitespace
   (define-key global-map (kbd "C-x <backspace>") (lambda ()
                                                    (interactive)
                                                    (just-one-space -1)))
   (define-key global-map (kbd "C-x <delete>") 'delete-blank-lines)
+  (define-key global-map (kbd "M-<return>") 'gnp-open-line-after)
+  (define-key global-map (kbd "M-S-<return>") 'gnp-open-line-before)
 
   ;; Brackets
   (when (display-graphic-p)
@@ -113,7 +134,6 @@ then signal an error, in the interest of preserving structure."
   (modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
 
   ;; f1-f4: general
-  (define-key global-map (kbd "<f1>") 'slime-selector)
   (define-key global-map (kbd "<f2>") 'occur)
   (define-key global-map (kbd "<f3>") 'query-replace)
   (define-key global-map (kbd "<f4>") 'isearch-forward-regexp)

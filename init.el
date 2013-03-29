@@ -23,16 +23,16 @@
 
 ;;; LIBRARIES
 
-(require 'libraries)
-
 (require 'appearance)
 (require 'behavior)
 (require 'key-bindings)
+
+(require 'libraries)
 (require 'white)
 (require 'hacks)
 
-(require 'setup-slime)
 (require 'setup-paredit)
+(require 'setup-slime)
 (require 'setup-redshank)
 (require 'setup-dired)
 (require 'setup-org)

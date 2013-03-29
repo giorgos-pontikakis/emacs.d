@@ -18,9 +18,8 @@
   (define-key paredit-mode-map (kbd "M-)") 'paredit-close-round)
   (define-key paredit-mode-map (kbd ")") 'paredit-close-round-and-newline)
 
-  (define-key paredit-mode-map (kbd "RET") nil)
-  (define-key lisp-mode-shared-map (kbd "RET") 'paredit-newline)
-  (define-key paredit-mode-map (kbd "M-<RET>") 'newline-and-indent)
+  (define-key paredit-mode-map (kbd "<return>") nil)
+  (define-key lisp-mode-shared-map (kbd "<return>") 'paredit-newline)
 
   (define-key paredit-mode-map (kbd "C-<backspace>") 'paredit-backward-kill-word)
   (define-key paredit-mode-map (kbd "C-<delete>") 'paredit-forward-kill-word)
