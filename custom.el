@@ -70,7 +70,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(deft-title-face ((t (:inherit font-lock-function-name-face))))
- '(error ((t (:foreground "red"))))
+ '(error ((t (:foreground "firebrick1"))))
  '(ido-first-match ((t (:foreground "tomato"))))
  '(ido-only-match ((((class color)) (:foreground "tomato"))))
  '(ido-subdir ((((min-colors 88) (class color)) (:foreground "gold2"))))
