@@ -41,18 +41,9 @@
   ;; Extra to paredit defaults for forward/backward (C-M-f and C-M-b)
   (define-key paredit-mode-map (kbd "M-<left>") 'paredit-backward)
   (define-key paredit-mode-map (kbd "M-<right>") 'paredit-forward)
-  (define-key paredit-mode-map (kbd "C-M-<left>") (lambda ()
-                                                    (interactive)
-                                                    (deactivate-mark)
-                                                    (paredit-backward)
-                                                    (paredit-backward)
-                                                    (paredit-forward)))
-  (define-key paredit-mode-map (kbd "C-M-<right>") (lambda ()
-                                                    (interactive)
-                                                    (deactivate-mark)
-                                                    (paredit-forward)
-                                                    (paredit-forward)
-                                                    (paredit-backward)))
+  (define-key paredit-mode-map (kbd "C-M-<left>") nil)
+  (define-key paredit-mode-map (kbd "C-M-<right>") nil)
+
   ;; Take back M-<down> and M-<up>
   ;; Extra to paredit defaults C-M-u and C-M-d, rely on C-M-( and C-M-) for barfage
   (define-key paredit-mode-map (kbd "M-<up>") 'paredit-backward-up)
@@ -72,7 +63,7 @@
 (defvar common-lisp-octothorpe-parameter-parenthesis-characters '(?A))
 (defvar common-lisp-octothorpe-parenthesis-characters '(?+ ?- ?C))
 
-(defun paredit-space-for-delimiter-predicate-common-lisp (endp delimiter)
+(defun paredit-space-for-delimiter-predicates-common-lisp (endp delimiter)
   (or endp
       (let ((case-fold-search t)
             (look

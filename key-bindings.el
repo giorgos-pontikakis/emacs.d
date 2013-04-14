@@ -59,9 +59,9 @@ Position the cursor at its beginning, according to the current mode."
   (define-key global-map (kbd "C-x M-f") 'view-file)
 
   ;; Toggle input method
-  (define-key global-map (kbd "M-j") 'toggle-input-method)
+  (define-key global-map (kbd "M-h") 'toggle-input-method)
 
-  (define-key isearch-mode-map (kbd "M-j") 'isearch-toggle-input-method)
+  (define-key isearch-mode-map (kbd "M-h") 'isearch-toggle-input-method)
   (define-key isearch-mode-map (kbd "S-<insert>") 'isearch-yank-kill)
 
   ;; Miscellaneous commands

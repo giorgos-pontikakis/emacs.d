@@ -108,9 +108,15 @@
 ;;; multiple cursors
 (require 'multiple-cursors)
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-M-<right>") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-M-<left>") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
+
+
+;;; js2-mode
+(require 'js2-mode)
+(define-key js2-mode-map (kbd "C-<return>") 'js2-line-break)
+(add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
 (provide 'libraries)
