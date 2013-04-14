@@ -13,24 +13,6 @@
     (kill-ring-save beg (point))
     (backward-sexp)))
 
-(defun gnp-bracket-wrap-sexp (&optional n)
-  "Wrap the following S-expression in a list.
-If a prefix argument N is given, wrap N S-expressions.
-Automatically indent the newly wrapped S-expression. As a special
-case, if the point is at the end of a list, simply insert a pair
-of parentheses, rather than insert a lone opening parenthesis and
-then signal an error, in the interest of preserving structure."
-  (interactive "P")
-  (paredit-handle-sexp-errors
-      (paredit-insert-pair (or n
-                               (and (not (paredit-region-active-p))
-                                    1))
-                           ?\[ ?\]
-                           'goto-char)
-    (insert ?\] )
-    (backward-char))
-  (save-excursion (backward-up-list) (indent-sexp)))
-
 (defun gnp-other-window-previous ()
   (interactive)
   (other-window -1))
@@ -50,7 +32,6 @@ Position the cursor at its beginning, according to the current mode."
   (newline-and-indent)
   (previous-line)
   (indent-for-tab-command))
-
 
 (defun global-key-bindings ()
   (interactive)

@@ -105,4 +105,12 @@
 ;;; For greek, aspell-el must be present in the system
 (setq-default ispell-program-name "aspell")
 
+;;; multiple cursors
+(require 'multiple-cursors)
+(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+(global-set-key (kbd "C->") 'mc/mark-next-like-this)
+(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+
+
 (provide 'libraries)
