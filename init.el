@@ -51,8 +51,12 @@
                             (enable-paredit-mode)
                             (hs-minor-mode t)))
 
-(add-hook 'js-mode-hook (lambda ()
-                          (js2-mode)))
+(add-hook 'js2-mode-hook (lambda ()
+                           (make-local-variable 'paredit-space-for-delimiter-predicates)
+                           (add-to-list 'paredit-space-for-delimiter-predicates
+                                        (lambda (endp delimiter)
+                                          nil))
+                           (enable-paredit-mode)))
 
 (add-hook 'slime-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
