@@ -72,6 +72,8 @@
   (set-face-attribute 'header-line nil :inherit 'mode-line :background "grey10" :foreground "black")
   (set-face-attribute 'region nil :background "gray" :foreground "black"))
 
+(defadvice load-theme (before theme-dont-propagate activate)
+  (mapcar #'disable-theme custom-enabled-themes))
 
 ;;; Set default frame properties
 (setq default-frame-alist
