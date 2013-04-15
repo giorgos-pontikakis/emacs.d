@@ -14,20 +14,29 @@
   (put 'paredit-forward-up 'CUA 'move)
   (put 'paredit-forward-down 'CUA 'move)
 
-  ;; Basic keys
+  ;; open
   (define-key paredit-mode-map (kbd "{") 'paredit-open-curly)
   (define-key paredit-mode-map (kbd "<") 'paredit-open-angled)
+
+  ;; wrap
+  (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
+  (define-key paredit-mode-map (kbd "M-{") 'paredit-wrap-curly)
+  (define-key paredit-mode-map (kbd "M-<") 'paredit-wrap-angled)
+
+  ;; close
   (define-key paredit-mode-map (kbd "M-)") 'paredit-close-round)
   (define-key paredit-mode-map (kbd "M-]") 'paredit-close-square)
   (define-key paredit-mode-map (kbd "M-}") 'paredit-close-curly)
   (define-key paredit-mode-map (kbd "M->") 'paredit-close-angled)
+
+  ;; close and newline
   (define-key paredit-mode-map (kbd ")") 'paredit-close-round-and-newline)
   (define-key paredit-mode-map (kbd "]") 'paredit-close-square-and-newline)
   (define-key paredit-mode-map (kbd "}") 'paredit-close-square-and-newline)
   (define-key paredit-mode-map (kbd ">") 'paredit-close-angled-and-newline)
 
-  (define-key paredit-mode-map (kbd "<return>") nil)
-  (define-key lisp-mode-shared-map (kbd "<return>") 'paredit-newline)
+  ;; (define-key paredit-mode-map (kbd "RET") nil)
+  (define-key lisp-mode-shared-map (kbd "RET") 'paredit-newline)
 
   (define-key paredit-mode-map (kbd "C-<backspace>") 'paredit-backward-kill-word)
   (define-key paredit-mode-map (kbd "C-<delete>") 'paredit-forward-kill-word)

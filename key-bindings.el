@@ -105,14 +105,8 @@ Position the cursor at its beginning, according to the current mode."
                                                    (interactive)
                                                    (just-one-space -1)))
   (define-key global-map (kbd "C-x <delete>") 'delete-blank-lines)
-  (define-key global-map (kbd "M-<return>") 'gnp-open-line-after)
-  (define-key global-map (kbd "M-S-<return>") 'gnp-open-line-before)
-
-  ;; Brackets
-  (when (display-graphic-p)
-    (define-key global-map (kbd "M-[") 'gnp-bracket-wrap-sexp))
-  (modify-syntax-entry ?\[ "(]" lisp-mode-syntax-table)
-  (modify-syntax-entry ?\] ")[" lisp-mode-syntax-table)
+  (define-key global-map (kbd "M-RET") 'gnp-open-line-after)
+  (define-key global-map (kbd "M-S-RET") 'gnp-open-line-before)
 
   ;; f1-f4: general
   (define-key global-map (kbd "<f2>") 'occur)
@@ -211,7 +205,7 @@ Position the cursor at its beginning, according to the current mode."
   (define-key global-map (kbd "S-<f12>") 'org-iswitchb)
 
   ;; Emacs Lisp
-  (define-key lisp-interaction-mode-map (kbd "C-c <return>") 'eval-print-last-sexp)
+  (define-key lisp-interaction-mode-map (kbd "C-c RET") 'eval-print-last-sexp)
   (define-key lisp-interaction-mode-map (kbd "<backtab>") 'completion-at-point)
   (define-key emacs-lisp-mode-map (kbd "<backtab>") 'completion-at-point))
 

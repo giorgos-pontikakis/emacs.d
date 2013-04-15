@@ -115,7 +115,7 @@
 
 ;;; js2-mode
 (require 'js2-mode)
-(define-key js2-mode-map (kbd "C-<return>") 'js2-line-break)
+(define-key js2-mode-map (kbd "C-RET") 'js2-line-break)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
 
