@@ -30,6 +30,8 @@
 ;;; expand-region
 (require 'expand-region)
 (global-set-key (kbd "C-=") 'er/expand-region)
+;; bind M-S-<return> directly because M-S-RET gets translated to M-RET
+(define-key global-map (kbd "C-M-<return>") 'er/expand-region)
 
 ;;; yasnippet
 (require 'yasnippet)
@@ -50,8 +52,23 @@
 (add-to-list 'auto-mode-alist '("sites-\\(available\\|enabled\\)/" . apache-mode))
 
 ;;; ace-jump-mode
-(require 'ace-jump-mode)
-(define-key global-map (kbd "M-i") 'ace-jump-mode)
+(autoload
+  'ace-jump-mode
+  "ace-jump-mode"
+  "Emacs quick move minor mode"
+  t)
+
+(autoload
+  'ace-jump-mode-pop-mark
+  "ace-jump-mode"
+  "Ace jump back:-)"
+  t)
+
+(eval-after-load "ace-jump-mode"
+  '(ace-jump-mode-enable-mark-sync))
+(define-key global-map (kbd "M-i") 'ace-jump-word-mode)
+(define-key global-map (kbd "M-I") 'ace-jump-char-mode)
+(define-key global-map (kbd "C-x x") 'ace-jump-mode-pop-mark)
 
 ;; ido-ubiquitous
 (require 'ido-ubiquitous)
@@ -110,7 +127,7 @@
 (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 (global-set-key (kbd "C-M-<right>") 'mc/mark-next-like-this)
 (global-set-key (kbd "C-M-<left>") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-a") 'mc/mark-all-like-this)
+(global-set-key (kbd "C-M-<kp-0>") 'mc/mark-all-like-this)
 
 
 ;;; js2-mode

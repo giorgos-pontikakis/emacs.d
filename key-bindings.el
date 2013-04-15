@@ -106,7 +106,9 @@ Position the cursor at its beginning, according to the current mode."
                                                    (just-one-space -1)))
   (define-key global-map (kbd "C-x <delete>") 'delete-blank-lines)
   (define-key global-map (kbd "M-RET") 'gnp-open-line-after)
-  (define-key global-map (kbd "M-S-RET") 'gnp-open-line-before)
+  ;; bind M-S-<return> directly because M-S-RET gets translated to M-RET
+  (define-key global-map (kbd "M-S-<return>") 'gnp-open-line-before)
+
 
   ;; f1-f4: general
   (define-key global-map (kbd "<f2>") 'occur)
