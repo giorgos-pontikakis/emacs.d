@@ -63,6 +63,6 @@
  '(ido-subdir ((((min-colors 88) (class color)) (:foreground "gold2"))))
  '(error ((t (:foreground "firebrick1"))))
  '(show-paren-match ((t (:foreground "red" :weight bold))))
- '(default ((t (:background "gray5" :foreground "snow" :height 80 :family "Inconsolata")))))
+ '(default ((t (:background "gray5" :foreground "snow" :height 90 :family "Inconsolata")))))
 
 (provide-theme 'gnp-pastel)

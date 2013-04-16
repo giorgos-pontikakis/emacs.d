@@ -186,6 +186,11 @@ Position the cursor at its beginning, according to the current mode."
        (interactive)
        (set-face-attribute 'default nil :family "Inconsolata")))
 
+  (define-key global-map (kbd "<C-kp-6>")
+    '(lambda ()
+       (interactive)
+       (set-face-attribute 'default nil :family "DejaVu Sans Mono")))
+
   (define-key global-map (kbd "<C-kp-8>")
     '(lambda ()
        (interactive)

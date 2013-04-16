@@ -3,6 +3,7 @@
 
 (custom-theme-set-variables
  'gnp-dark
+ '(frame-brackground-mode (quote dark))
  '(cua-normal-cursor-color "snow")
  '(cua-overwrite-cursor-color "red")
  '(cua-read-only-cursor-color "yellow"))
