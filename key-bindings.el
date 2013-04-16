@@ -38,7 +38,7 @@ Position the cursor at its beginning, according to the current mode."
 
   ;; I don't need to kill emacs that easily -- the mnemonic is C-x REALLY QUIT
   (global-set-key (kbd "C-x r q") 'save-buffers-kill-terminal)
-  (global-set-key (kbd "C-x C-c") 'delete-frame)
+  (global-set-key (kbd "C-x C-c") 'delete-this-frame)
 
   ;; Reserved for the OS key binding
   (global-unset-key (kbd "M-SPC"))
@@ -139,63 +139,67 @@ Position the cursor at its beginning, according to the current mode."
   (define-key global-map (kbd "M-<f12>") 'revert-buffer)
 
   ;;  Fonts
-  (define-key global-map (kbd "<C-kp-0>")
-    '(lambda ()
-       (interactive)
-       (set-face-attribute 'default nil
-                           :background (face-background 'default)
-                           :foreground (face-foreground 'default)
-                           :font "-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-7")))
 
   (define-key global-map (kbd "<C-kp-1>")
-    '(lambda ()
-       (interactive)
-       (set-face-attribute 'default nil
-                           :background (face-background 'default)
-                           :foreground (face-foreground 'default)
-                           :font "-*-fixed-medium-r-semicondensed-*-13-*-*-*-*-*-*-7")))
+    (lambda ()
+      (interactive)
+      (set-face-attribute 'default nil
+                          :family "fixed"
+                          :foundry "misc"
+                          :width 'semi-condensed
+                          :height 100
+                          :weight 'medium
+                          :slant 'normal
+                          :underline nil
+                          :overline nil
+                          :strike-through nil
+                          :box nil
+                          :inverse-video nil
+                          :stipple nil
+                          :inherit nil)))
 
   (define-key global-map (kbd "<C-kp-2>")
-    '(lambda ()
-       (interactive)
-       (set-face-attribute 'default nil
-                           :background (face-background 'default)
-                           :foreground (face-foreground 'default)
-                           :font "-*-terminus-medium-r-normal-*-14-*-*-*-*-*-*-7")))
-
-  (define-key global-map (kbd "<C-kp-3>")
-    '(lambda ()
-       (interactive)
-       (set-face-attribute 'default nil
-                           :background (face-background 'default)
-                           :foreground (face-foreground 'default)
-                           :font "-*-fixed-medium-r-normal-*-14-*-*-*-*-*-*-7")))
+    (lambda ()
+      (interactive)
+      (set-face-attribute 'default nil
+                          :family "Terminus"
+                          :foundry "xos4"
+                          :width 'normal
+                          :height 90
+                          :weight 'medium
+                          :slant 'normal
+                          :underline nil
+                          :overline nil
+                          :strike-through nil
+                          :box nil
+                          :inverse-video nil
+                          :stipple nil
+                          :inherit nil)))
 
   (define-key global-map (kbd "<C-kp-4>")
     '(lambda ()
        (interactive)
-       (set-face-attribute 'default nil
-                           :background (face-background 'default)
-                           :foreground (face-foreground 'default)
-                           :font "Droid Sans Mono-9")))
+       (set-face-attribute 'default nil :family "Droid Sans Mono")))
 
   (define-key global-map (kbd "<C-kp-5>")
     '(lambda ()
        (interactive)
-       (set-face-attribute 'default nil
-                           :background (face-background 'default)
-                           :foreground (face-foreground 'default)
-                           :font "Inconsolata-9")))
+       (set-face-attribute 'default nil :family "Inconsolata")))
 
   (define-key global-map (kbd "<C-kp-8>")
     '(lambda ()
        (interactive)
-       (gnp-light-colors)))
+       (set-face-attribute 'default nil :height 80)))
 
   (define-key global-map (kbd "<C-kp-9>")
     '(lambda ()
        (interactive)
-       (gnp-dark-colors)))
+       (set-face-attribute 'default nil :height 90)))
+
+  (define-key global-map (kbd "<C-kp-7>")
+    '(lambda ()
+       (interactive)
+       (set-face-attribute 'default nil :height 100)))
 
   ;; ORG-related, global map
   (define-key global-map (kbd "C-c l") 'org-store-link)
