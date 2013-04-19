@@ -57,12 +57,12 @@
   "ace-jump-mode"
   "Emacs quick move minor mode"
   t)
-
 (autoload
   'ace-jump-mode-pop-mark
   "ace-jump-mode"
   "Ace jump back:-)"
   t)
+(setq ace-jump-mode-scope 'frame)
 
 (eval-after-load "ace-jump-mode"
   '(ace-jump-mode-enable-mark-sync))
