@@ -146,6 +146,14 @@ read-only."
 
 
 ;;; ------------------------------------------------------------
+;;; W32
+;;; ------------------------------------------------------------
+(when (eq system-type 'windows-nt)
+  (w32-register-hot-key (kbd "M-S") nil))
+
+
+
+;;; ------------------------------------------------------------
 ;;; MODES
 ;;; ------------------------------------------------------------
 
@@ -155,10 +163,6 @@ read-only."
 ;; Undo/redo window configuration with C-c <left>/<right>
 ;; (winner-mode 1)
 
-;; ;; Represent undo-history as an actual tree (visualize with C-x u)
-;; (setq undo-tree-mode-lighter "")
-;; (require 'undo-tree)
-;; (global-undo-tree-mode)
 
 
 (provide 'behavior)
