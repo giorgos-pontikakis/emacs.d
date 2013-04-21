@@ -1,12 +1,20 @@
 ;;; Slime core functionality
+
 (setq slime-lisp-implementations
       `((sbcl ("sbcl"))
         (slime ("sbcl" "--core" "/home/gnp/sbcl-slime.core"))
         (web ("sbcl" "--core" "/home/gnp/sbcl-web.core"))
-        (clisp ("clisp"))))
+        (clisp ("clisp"))
+        (ccl ("wx86cl"))))
+
 
 ;;; Slime via quicklisp
-(load (expand-file-name "~/quicklisp/slime-helper.el"))
+
+(let ((user-homedir-pathname (if (eq system-type 'windows-nt)
+                                     (getenv "USERPROFILE")
+                                     (getenv "HOME"))))
+  (load (expand-file-name "quicklisp/slime-helper.el"
+                          user-homedir-pathname)))
 
 
 ;;; Load Slime with contrib functionality
@@ -38,8 +46,12 @@
 
 ;;; Isolate fasl files generated from slime-compile-file
 
-(make-directory "/tmp/slime-fasls/" t)
-(setq slime-compile-file-options '(:fasl-directory "/tmp/slime-fasls/"))
+(let ((tmp-dir (expand-file-name "slime-fasls/"
+                                 (if (eq system-type 'windows-nt)
+                                     (getenv "TEMP")
+                                     "/tmp/slime-fasls/"))))
+  (make-directory tmp-dir t)
+  (setq slime-compile-file-options '(:fasl-directory tmp-dir)))
 
 
 ;;; Indentation
@@ -70,7 +82,7 @@
 
   (define-key slime-mode-map (kbd "TAB") 'slime-indent-and-complete-symbol)
   (define-key slime-mode-map (kbd "C-c TAB") 'slime-complete-form)
-  (define-key slime-mode-map (kbd "C-;") 'slime-insert-balanced-comments)
+  (define-key slime-mode-map (kbd "C-;") 'slime-insert-balanced-comments) ;
   (define-key slime-mode-map (kbd "C-M-;") 'slime-remove-balanced-comments)
 
   (define-key sldb-mode-map (kbd "C-M-<left>") 'slime-previous-presentation)
@@ -85,7 +97,10 @@
                                          (slime 'slime)))
   (define-key global-map (kbd "C-c 3") (lambda ()
                                          (interactive)
-                                         (slime 'web))))
+                                         (slime 'web)))
+  (define-key global-map (kbd "C-c 4") (lambda ()
+                                         (interactive)
+                                         (slime 'ccl))))
 
 (defun gnp-repl-key-bindings ()
   (interactive)

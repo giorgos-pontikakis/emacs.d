@@ -79,7 +79,8 @@
 
 ;; EMACS SERVER
 
-(when (display-graphic-p)
+(when (and (display-graphic-p)
+           (not (eq system-type 'windows-nt)))
   (require 'server)
   (unless (server-running-p)
     (server-start)))

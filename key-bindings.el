@@ -223,12 +223,4 @@ Position the cursor at its beginning, according to the current mode."
 ;;; Finally, bind the keys
 (global-key-bindings)
 
-;;; These should be useful in Windows,
-;;; where there is no xmodmap equivalent
-(when (string-equal window-system "w32")
-  (keyboard-translate ?\( ?\[)
-  (keyboard-translate ?\[ ?\()
-  (keyboard-translate ?\) ?\])
-  (keyboard-translate ?\] ?\)))
-
 (provide 'key-bindings)

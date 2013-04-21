@@ -50,26 +50,25 @@
 ;;; ------------------------------------------------------------
 
 ;;; Use UTF-8 for everything
-(setq locale-coding-system 'utf-8)
-(set-terminal-coding-system 'utf-8)
-(set-keyboard-coding-system 'utf-8)
-(set-file-name-coding-system 'utf-8)
-(set-selection-coding-system 'utf-8)
+;; (setq locale-coding-system 'utf-8)
+;; (set-default-coding-systems 'utf-8)
+;; (set-terminal-coding-system 'utf-8)
+;; (set-keyboard-coding-system 'utf-8)
+;; (set-buffer-file-coding-system 'utf-8)
 
-(set-default-coding-systems 'utf-8)
-(setq current-language-environment "Greek")
-(setq default-input-method "greek")
+(if (eq system-type (not 'windows-nt))
+    (set-file-name-coding-system 'utf-8)
+  (set-file-name-coding-system 'windows-1253))
+
+(set-language-environment "Greek")
 (prefer-coding-system 'utf-8)
-
 
 
 ;;; ------------------------------------------------------------
 ;;; CURSOR
 ;;; ------------------------------------------------------------
 
-;; ;; Keep cursor away from edges when scrolling up/down
-;; (require 'smooth-scrolling)
-
+;;; Scrolling
 (setq scroll-conservatively 1)
 
 ;;; Keeps the cursor in the same relative row during pgups and dwns.
@@ -148,8 +147,9 @@ read-only."
 ;;; ------------------------------------------------------------
 ;;; W32
 ;;; ------------------------------------------------------------
-(when (eq system-type 'windows-nt)
-  (w32-register-hot-key (kbd "M-S") nil))
+;; (when (eq system-type 'windows-nt)
+;;   (w32-register-hot-key (kbd "M-S"))
+;;   (w32-register-hot-key (kbd "S-M")))
 
 
 
