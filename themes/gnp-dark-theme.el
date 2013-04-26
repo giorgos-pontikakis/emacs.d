@@ -9,7 +9,7 @@
 
 (custom-theme-set-faces
  'gnp-dark
- '(default ((t (:family "Inconsolata" :background "black" :foreground "azure1" :width normal :weight normal :height 80 :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil  :stipple nil :inherit nil))))
+ '(default ((t (:background "black" :foreground "azure1" :width normal :weight normal :slant normal :underline nil :overline nil :strike-through nil :box nil :inverse-video nil  :stipple nil :inherit nil))))
  '(cursor ((t (:background "snow"))))
  '(variable-pitch ((t (:family "Sans Serif"))))
  '(escape-glyph ((((background dark)) (:foreground "cyan")) (((type pc)) (:foreground "magenta")) (t (:foreground "brown"))))

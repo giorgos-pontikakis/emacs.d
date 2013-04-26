@@ -184,7 +184,7 @@ Position the cursor at its beginning, according to the current mode."
   (define-key global-map (kbd "<C-kp-5>")
     '(lambda ()
        (interactive)
-       (set-face-attribute 'default nil :family "Inconsolata")))
+       (set-face-attribute 'default nil :family gnp-console-font-family)))
 
   (define-key global-map (kbd "<C-kp-6>")
     '(lambda ()

@@ -29,10 +29,15 @@
 (setq display-time-24hr-format t)
 (display-time-mode 1)
 
-;;; Themes
+;;; Fonts and Themes
+(defvar gnp-console-font-family
+  (if (eq system-type 'windows-nt)
+      "Consolas"
+    "Inconsolata"))
+(set-face-attribute 'default nil :family gnp-console-font-family :height 80)
 (setq custom-theme-directory (expand-file-name "themes" dotfiles-dir))
 (load-theme 'gnp-dark t)
-;;; (load-theme 'gnp-light t)
+;; (load-theme 'gnp-light t)
 
 
 ;;; Set default frame properties

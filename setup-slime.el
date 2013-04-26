@@ -11,8 +11,8 @@
 ;;; Slime via quicklisp
 
 (let ((user-homedir-pathname (if (eq system-type 'windows-nt)
-                                     (getenv "USERPROFILE")
-                                     (getenv "HOME"))))
+                                 (getenv "USERPROFILE")
+                               (getenv "HOME"))))
   (load (expand-file-name "quicklisp/slime-helper.el"
                           user-homedir-pathname)))
 
