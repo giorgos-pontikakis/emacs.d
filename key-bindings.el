@@ -206,6 +206,17 @@ Position the cursor at its beginning, according to the current mode."
        (interactive)
        (set-face-attribute 'default nil :height 100)))
 
+  (define-key global-map (kbd "<M-kp-8>")
+    '(lambda ()
+       (interactive)
+       (load-theme 'gnp-dark t)))
+
+  (define-key global-map (kbd "<M-kp-9>")
+    '(lambda ()
+       (interactive)
+       (load-theme 'gnp-light t)))
+
+
   ;; ORG-related, global map
   (define-key global-map (kbd "C-c l") 'org-store-link)
   (define-key global-map (kbd "C-c c") 'org-capture)
