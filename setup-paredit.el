@@ -88,7 +88,7 @@
                       (not (funcall look "#[0-9]*" opp 20))))
                 ((eq (char-syntax delimiter) ?\")
                  (not (funcall look "#" oq 2)))
-                (else t))))))
+                (t t))))))
 
 (eval-after-load 'paredit
   '(gnp-paredit-key-bindings))

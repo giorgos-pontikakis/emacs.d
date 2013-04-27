@@ -51,7 +51,7 @@
                                      (getenv "TEMP")
                                      "/tmp/slime-fasls/"))))
   (make-directory tmp-dir t)
-  (setq slime-compile-file-options '(:fasl-directory tmp-dir)))
+  (setq slime-compile-file-options `(:fasl-directory ,tmp-dir)))
 
 
 ;;; Indentation
