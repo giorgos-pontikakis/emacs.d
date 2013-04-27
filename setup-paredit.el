@@ -32,7 +32,7 @@
   ;; close and newline
   (define-key paredit-mode-map (kbd ")") 'paredit-close-round-and-newline)
   (define-key paredit-mode-map (kbd "]") 'paredit-close-square-and-newline)
-  (define-key paredit-mode-map (kbd "}") 'paredit-close-square-and-newline)
+  (define-key paredit-mode-map (kbd "}") 'paredit-close-curly-and-newline)
   (define-key paredit-mode-map (kbd ">") 'paredit-close-angled-and-newline)
 
   ;; (define-key paredit-mode-map (kbd "RET") nil)

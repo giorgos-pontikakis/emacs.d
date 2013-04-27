@@ -47,7 +47,7 @@
 (add-hook 'lisp-mode-hook (lambda ()
                             (make-local-variable 'paredit-space-for-delimiter-predicates)
                             (add-to-list 'paredit-space-for-delimiter-predicates
-                                         'paredit-space-for-delimiter-predicate-common-lisp)
+                                         'paredit-space-for-delimiter-predicates-common-lisp)
                             (enable-paredit-mode)
                             (hs-minor-mode t)))
 
