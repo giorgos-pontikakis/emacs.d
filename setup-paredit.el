@@ -16,7 +16,6 @@
 
   ;; open
   (define-key paredit-mode-map (kbd "{") 'paredit-open-curly)
-  (define-key paredit-mode-map (kbd "<") 'paredit-open-angled)
 
   ;; wrap
   (define-key paredit-mode-map (kbd "M-[") 'paredit-wrap-square)
@@ -27,13 +26,11 @@
   (define-key paredit-mode-map (kbd "M-)") 'paredit-close-round)
   (define-key paredit-mode-map (kbd "M-]") 'paredit-close-square)
   (define-key paredit-mode-map (kbd "M-}") 'paredit-close-curly)
-  (define-key paredit-mode-map (kbd "M->") 'paredit-close-angled)
 
   ;; close and newline
   (define-key paredit-mode-map (kbd ")") 'paredit-close-round-and-newline)
   (define-key paredit-mode-map (kbd "]") 'paredit-close-square-and-newline)
   (define-key paredit-mode-map (kbd "}") 'paredit-close-curly-and-newline)
-  (define-key paredit-mode-map (kbd ">") 'paredit-close-angled-and-newline)
 
   ;; (define-key paredit-mode-map (kbd "RET") nil)
   (define-key lisp-mode-shared-map (kbd "RET") 'paredit-newline)

@@ -107,7 +107,8 @@
   (define-key slime-repl-mode-map (kbd "C-M-q") 'slime-reindent-defun)
   (define-key slime-repl-mode-map (kbd "M-r") nil)
   (define-key slime-repl-mode-map (kbd "M-s") nil)
-  (define-key slime-repl-mode-map (kbd "RET") 'slime-repl-newline-and-indent)
+  (define-key slime-repl-mode-map (kbd "<return>") 'slime-repl-newline-and-indent)
+  (define-key slime-repl-mode-map (kbd "<kp-enter>") 'slime-repl-newline-and-indent)
   (define-key slime-repl-mode-map (kbd "M-RET") 'slime-repl-return)
   (define-key slime-repl-mode-map (kbd "M-<kp-enter>") 'slime-repl-return)
 
