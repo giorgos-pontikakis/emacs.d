@@ -5,6 +5,16 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+(mapc (lambda (package)
+        (unless (package-installed-p package)
+          (package-install package)))
+      '(ace-jump-mode apache-mode auto-indent-mode browse-kill-ring deft erlang expand-region
+                      find-file-in-project google-translate goto-last-change gruber-darker-theme
+                      ido-ubiquitous js2-mode jump-char late-night-theme magit monokai-theme
+                      multiple-cursors occidental-theme regex-tool save-packages
+                      sea-before-storm-theme smartparens dash smex solarized-theme
+                      soothe-theme tango-2-theme twilight-theme underwater-theme undo-tree
+                      wgrep yasnippet zen-and-art-theme zenburn-theme))
 
 ;;; common lisp extensions
 (require 'cl-lib)
