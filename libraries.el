@@ -5,16 +5,41 @@
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
+(defvar gnp-theme-list '(gruber-darker-theme
+			 late-night-theme
+			 monokai-theme 
+			 sea-before-storm-theme
+			 solarized-theme 
+			 twilight-theme 
+			 zen-and-art-theme
+			 zenburn-theme))
+(defvar gnp-package-list '(ace-jump-mode
+			   apache-mode
+			   auto-indent-mode
+			   browse-kill-ring
+			   deft
+			   erlang
+			   expand-region
+			   find-file-in-project 
+			   google-translate
+			   goto-last-change 
+			   ido-ubiquitous
+			   js2-mode
+			   jump-char
+			   magit 
+			   multiple-cursors
+			   regex-tool
+			   save-packages 
+			   smartparens
+			   dash
+			   smex 
+			   undo-tree 
+			   wgrep
+			   yasnippet))
 (mapc (lambda (package)
         (unless (package-installed-p package)
           (package-install package)))
-      '(ace-jump-mode apache-mode auto-indent-mode browse-kill-ring deft erlang expand-region
-                      find-file-in-project google-translate goto-last-change gruber-darker-theme
-                      ido-ubiquitous js2-mode jump-char late-night-theme magit monokai-theme
-                      multiple-cursors occidental-theme regex-tool save-packages
-                      sea-before-storm-theme smartparens dash smex solarized-theme
-                      soothe-theme tango-2-theme twilight-theme underwater-theme undo-tree
-                      wgrep yasnippet zen-and-art-theme zenburn-theme))
+      (append gnp-theme-list gnp-package-list))
 
 ;;; common lisp extensions
 (require 'cl-lib)
