@@ -52,7 +52,6 @@
                             (hs-minor-mode t)))
 
 (add-hook 'js2-mode-hook (lambda ()
-                           (subword-mode 1)
                            (make-local-variable 'paredit-space-for-delimiter-predicates)
                            (add-to-list 'paredit-space-for-delimiter-predicates
                                         (lambda (endp delimiter)

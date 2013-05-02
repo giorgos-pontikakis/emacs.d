@@ -145,5 +145,7 @@
 (define-key js2-mode-map (kbd "C-RET") 'js2-line-break)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
 
+;;; subword mode
+(subword-mode 1)
 
 (provide 'libraries)
