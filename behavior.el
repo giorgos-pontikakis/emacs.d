@@ -43,6 +43,8 @@
 ;; Sentences do not need double spaces to end.
 (set-default 'sentence-end-double-space nil)
 
+;;; Allow scroll when searching
+(setq isearch-allow-scroll t)
 
 
 ;;; ------------------------------------------------------------
