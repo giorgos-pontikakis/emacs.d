@@ -36,7 +36,10 @@
                            undo-tree
                            wgrep
                            yasnippet
-                           tagedit))
+                           tagedit
+                           less-css-mode
+                           angular-snippets
+                           zencoding-mode))
 (mapc (lambda (package)
         (unless (package-installed-p package)
           (package-install package)))
