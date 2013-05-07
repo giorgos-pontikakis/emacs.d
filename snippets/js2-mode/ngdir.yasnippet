@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: angular directive
+# key: ngdir
+# --
+$1.directive("$2", function ($3) {
+`(js2-indent-line)`return {
+`(js2-indent-line)`restrict: "$4",
+`(js2-indent-line)`template: "$0"
+`(js2-indent-line)`};
+});

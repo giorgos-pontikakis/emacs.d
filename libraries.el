@@ -6,36 +6,37 @@
              '("marmalade" . "http://marmalade-repo.org/packages/"))
 (package-initialize)
 (defvar gnp-theme-list '(gruber-darker-theme
-			 late-night-theme
-			 monokai-theme 
-			 sea-before-storm-theme
-			 solarized-theme 
-			 twilight-theme 
-			 zen-and-art-theme
-			 zenburn-theme))
+                         late-night-theme
+                         monokai-theme
+                         sea-before-storm-theme
+                         solarized-theme
+                         twilight-theme
+                         zen-and-art-theme
+                         zenburn-theme))
 (defvar gnp-package-list '(ace-jump-mode
-			   apache-mode
-			   auto-indent-mode
-			   browse-kill-ring
-			   deft
-			   erlang
-			   expand-region
-			   find-file-in-project 
-			   google-translate
-			   goto-last-change 
-			   ido-ubiquitous
-			   js2-mode
-			   jump-char
-			   magit 
-			   multiple-cursors
-			   regex-tool
-			   save-packages 
-			   smartparens
-			   dash
-			   smex 
-			   undo-tree 
-			   wgrep
-			   yasnippet))
+                           apache-mode
+                           auto-indent-mode
+                           browse-kill-ring
+                           deft
+                           erlang
+                           expand-region
+                           find-file-in-project
+                           google-translate
+                           goto-last-change
+                           ido-ubiquitous
+                           js2-mode
+                           jump-char
+                           magit
+                           multiple-cursors
+                           regex-tool
+                           save-packages
+                           smartparens
+                           dash
+                           smex
+                           undo-tree
+                           wgrep
+                           yasnippet
+                           tagedit))
 (mapc (lambda (package)
         (unless (package-installed-p package)
           (package-install package)))
@@ -167,10 +168,33 @@
 
 ;;; js2-mode
 (require 'js2-mode)
-(define-key js2-mode-map (kbd "C-RET") 'js2-line-break)
+(define-key js2-mode-map (kbd "C-<return>") 'js2-line-break)
+(define-key js2-mode-map (kbd "M-j") nil)
 (add-to-list 'auto-mode-alist '("\\.js\\'" . js2-mode))
+(setq-default js2-basic-offset 2)
+(setq js2-bounce-indent-p nil
+      js2-mode-indent-inhibit-undo nil
+      js2-mode-indent-ignore-first-tab nil)
 
 ;;; subword mode
 (subword-mode 1)
+
+;;; HTML stuff
+;;; tagedit mode and angular snippets (magnars)
+;;; zencoding mode
+(eval-after-load "sgml-mode"
+  '(progn
+     (require 'tagedit)
+     (tagedit-add-experimental-features)
+     (add-hook 'html-mode-hook (lambda () (tagedit-mode 1)))
+     (define-key html-mode-map (kbd "C-(") 'tagedit-forward-barf-tag)
+     (define-key html-mode-map (kbd "C-)") 'tagedit-forward-slurp-tag)
+     (define-key html-mode-map (kbd "M-<delete>") 'tagedit-kill)
+     (require 'angular-snippets)
+     (define-key html-mode-map (kbd "C-c C-d") 'ng-snip-show-docs-at-point)
+     (require 'zencoding-mode)
+     (setq zencoding-indentation 2)
+     (define-key html-mode-map (kbd "<backtab>") 'zencoding-expand-line)))
+
 
 (provide 'libraries)
