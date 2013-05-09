@@ -2,18 +2,16 @@
 
 ;;; package module
 (require 'package)
-(add-to-list 'package-archives
-             '("marmalade" . "http://marmalade-repo.org/packages/"))
-(package-refresh-contents)
+
 (package-initialize)
+(add-to-list 'package-archives
+             '("melpa" . "http://melpa.milkbox.net/packages/") t)
+
 (defvar gnp-theme-list '(gruber-darker-theme
-                         late-night-theme
-                         monokai-theme
-                         sea-before-storm-theme
-                         solarized-theme
-                         twilight-theme
-                         zen-and-art-theme
-                         zenburn-theme))
+                         color-theme-sanityinc-solarized
+                         twilight-anti-bright-theme
+                         zen-and-art-theme))
+
 (defvar gnp-package-list '(ace-jump-mode
                            apache-mode
                            auto-indent-mode
@@ -30,7 +28,8 @@
                            magit
                            multiple-cursors
                            regex-tool
-                           save-packages
+                           paredit
+                           redshank
                            smartparens
                            dash
                            smex
@@ -41,10 +40,16 @@
                            less-css-mode
                            angular-snippets
                            zencoding-mode))
+
+(when (not package-archive-contents)
+  (package-refresh-contents))
+
 (mapc (lambda (package)
         (unless (package-installed-p package)
           (package-install package)))
       (append gnp-theme-list gnp-package-list))
+
+
 
 ;;; common lisp extensions
 (require 'cl-lib)
@@ -130,10 +135,19 @@
 (require 'undo-tree)
 (global-undo-tree-mode)
 
-;;; Misc from ELPA
+;;; Regex tool
 (autoload 'regex-tool "regex-tool" t)
+
+;;; Goto last change
 (autoload 'goto-last-change "goto-last-change"
   "Set point to the position of the last change." t)
+
+;;; Redshank
+(eval-after-load "redshank-loader"
+  `(redshank-setup '(lisp-mode-hook
+                     slime-repl-mode-hook) t))
+(setq redshank-accessor-name-function 'identity)
+(setq redshank-prefix-key "C-c C-r")
 
 ;;; Google Translate
 (require 'google-translate)
