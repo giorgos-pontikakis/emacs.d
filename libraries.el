@@ -4,6 +4,7 @@
 (require 'package)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/"))
+(package-refresh-contents)
 (package-initialize)
 (defvar gnp-theme-list '(gruber-darker-theme
                          late-night-theme

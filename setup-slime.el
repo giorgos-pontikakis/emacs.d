@@ -1,20 +1,24 @@
 ;;; Slime core functionality
 
-(setq slime-lisp-implementations
-      `((sbcl ("sbcl"))
-        (slime ("sbcl" "--core" "/home/gnp/sbcl-slime.core"))
-        (web ("sbcl" "--core" "/home/gnp/sbcl-web.core"))
-        (clisp ("clisp"))
-        (ccl ("wx86cl"))))
+(let ((user-homedir (if (eq system-type 'windows-nt)
+                        (getenv "USERPROFILE")
+                      (getenv "HOME"))))
+  ;; Implementations
+  (setq slime-lisp-implementations
+        `((sbcl ("sbcl"))
+          (ccl ("wx86cl64"))
+          (sbcl-web ("sbcl" "--core" ,(expand-file-name "sbcl-web.core" user-homedir)))
+          (ccl-web ("wx56cl64" "--image-name" ,(expand-file-name "ccl-web.core" user-homedir)))))
 
-
-;;; Slime via quicklisp
-
-(let ((user-homedir-pathname (if (eq system-type 'windows-nt)
-                                 (getenv "USERPROFILE")
-                               (getenv "HOME"))))
+  ;; Slime via quicklisp
   (load (expand-file-name "quicklisp/slime-helper.el"
-                          user-homedir-pathname)))
+                          user-homedir)))
+
+;;; default lisp
+(setq slime-default-lisp (if (eq system-type 'windows-nt)
+                             'ccl
+                           'sbcl))
+
 
 
 ;;; Load Slime with contrib functionality
@@ -94,13 +98,13 @@
                                          (slime 'sbcl)))
   (define-key global-map (kbd "C-c 2") (lambda ()
                                          (interactive)
-                                         (slime 'slime)))
+                                         (slime 'ccl)))
   (define-key global-map (kbd "C-c 3") (lambda ()
                                          (interactive)
-                                         (slime 'web)))
+                                         (slime 'sbcl-web)))
   (define-key global-map (kbd "C-c 4") (lambda ()
                                          (interactive)
-                                         (slime 'ccl))))
+                                         (slime 'ccl-web))))
 
 (defun gnp-repl-key-bindings ()
   (interactive)
