@@ -17,7 +17,7 @@
     (add-to-list 'load-path project)))
 
 ;; Keep emacs Custom-settings in separate file
-(setq custom-file (expand-file-name "custom.el" dotfiles-dir))
+(setq custom-file (expand-file-name "custom.el" site-lisp-dir))
 (load custom-file)
 
 
