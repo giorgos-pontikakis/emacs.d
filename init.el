@@ -33,7 +33,7 @@
 
 (require 'setup-paredit)
 (require 'setup-slime)
-;; (require 'setup-redshank)
+(require 'setup-redshank)
 (require 'setup-dired)
 (require 'setup-org)
 

@@ -142,13 +142,6 @@
 (autoload 'goto-last-change "goto-last-change"
   "Set point to the position of the last change." t)
 
-;;; Redshank
-(eval-after-load "redshank-loader"
-  `(redshank-setup '(lisp-mode-hook
-                     slime-repl-mode-hook) t))
-(setq redshank-accessor-name-function 'identity)
-(setq redshank-prefix-key "C-c C-r")
-
 ;;; Google Translate
 (require 'google-translate)
 (global-set-key "\C-ct" 'google-translate-query-translate)
