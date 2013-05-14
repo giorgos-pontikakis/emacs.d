@@ -2,13 +2,16 @@
 
 (let ((user-homedir (if (eq system-type 'windows-nt)
                         (getenv "USERPROFILE")
-                      (getenv "HOME"))))
+                      (getenv "HOME")))
+      (sbcl-bin "sbcl")
+      (ccl-bin (if (eq system-type 'windows-nt)
+                   "wx86cl64" "ccl")))
   ;; Implementations
   (setq slime-lisp-implementations
-        `((sbcl ("sbcl"))
-          (ccl ("wx86cl64"))
-          (sbcl-web ("sbcl" "--core" ,(expand-file-name "sbcl-web.core" user-homedir)))
-          (ccl-web ("wx56cl64" "--image-name" ,(expand-file-name "ccl-web.core" user-homedir)))))
+        `((sbcl (,sbcl-bin))
+          (ccl (,ccl-bin))
+          (sbcl-web (,sbcl-bin "--core" ,(expand-file-name "sbcl-web.core" user-homedir)))
+          (ccl-web (,ccl-bin "--image-name" ,(expand-file-name "ccl-web.core" user-homedir)))))
 
   ;; Slime via quicklisp
   (load (expand-file-name "quicklisp/slime-helper.el"
