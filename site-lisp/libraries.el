@@ -39,7 +39,8 @@
                            tagedit
                            less-css-mode
                            angular-snippets
-                           zencoding-mode))
+                           zencoding-mode
+                           electric-case))
 
 (when (not package-archive-contents)
   (package-refresh-contents))
