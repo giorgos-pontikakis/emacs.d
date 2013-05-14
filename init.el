@@ -56,7 +56,8 @@
                            (add-to-list 'paredit-space-for-delimiter-predicates
                                         (lambda (endp delimiter)
                                           nil))
-                           (enable-paredit-mode)))
+                           (enable-paredit-mode)
+                           (electric-case-mode 1)))
 
 (add-hook 'slime-mode-hook 'enable-paredit-mode)
 (add-hook 'slime-repl-mode-hook 'enable-paredit-mode)
