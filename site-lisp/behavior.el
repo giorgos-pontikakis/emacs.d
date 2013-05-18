@@ -51,19 +51,21 @@
 ;;; ENCODING
 ;;; ------------------------------------------------------------
 
-;;; Use UTF-8 for everything
-;; (setq locale-coding-system 'utf-8)
-;; (set-default-coding-systems 'utf-8)
-;; (set-terminal-coding-system 'utf-8)
-;; (set-keyboard-coding-system 'utf-8)
-;; (set-buffer-file-coding-system 'utf-8)
-
-(if (eq system-type (not 'windows-nt))
-    (set-file-name-coding-system 'utf-8)
-  (set-file-name-coding-system 'windows-1253))
+;;; Use UTF-8 for almost everything
+(setq locale-coding-system 'utf-8)
+(set-default-coding-systems 'utf-8)
+(set-terminal-coding-system 'utf-8)
+(set-keyboard-coding-system 'utf-8)
+(set-buffer-file-coding-system 'utf-8)
 
 (set-language-environment "Greek")
 (prefer-coding-system 'utf-8)
+
+;;; Filename for windows are special
+(if (not (eq system-type 'windows-nt))
+    (set-file-name-coding-system 'utf-8)
+  (set-file-name-coding-system 'windows-1253))
+
 
 
 ;;; ------------------------------------------------------------
