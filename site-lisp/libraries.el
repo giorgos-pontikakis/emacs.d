@@ -1,4 +1,4 @@
-;;; BUILT-IN LIBRARIES OR PACKAGES FROM REPOS
+;; BUILT-IN LIBRARIES OR PACKAGES FROM REPOS
 
 ;;; package module
 (require 'package)
@@ -150,7 +150,7 @@
 ;;; Deft mode
 (require 'deft)
 (setq deft-extension "org")
-(setq deft-directory "~/Dropbox/org/")
+(setq deft-directory "~/Dropbox/think/org/")
 (setq deft-text-mode 'org-mode)
 (setq deft-use-filename-as-title nil)
 (setq deft-auto-save-interval 0)
