@@ -1,4 +1,5 @@
 (require 'dired)
+(require 'dired-x)
 
 ;; Reload dired after creating a directory or creating af file
 (defadvice dired-create-directory (after revert-buffer-after-create activate)
@@ -43,5 +44,12 @@
      (define-key wdired-mode-map (kbd "C-x C-s") 'wdired-finish-edit)
      (define-key wdired-mode-map (kbd "C-c ESC") nil)
      (define-key wdired-mode-map (kbd "C-c C-c") nil)))
+
+;;; Omit dot files
+(setq dired-omit-files "^\\...+$")
+(add-hook 'dired-mode-hook
+          (lambda () (dired-omit-mode 1)))
+(define-key dired-mode-map (kbd "M-.") 'dired-omit-mode)
+
 
 (provide 'setup-dired)
