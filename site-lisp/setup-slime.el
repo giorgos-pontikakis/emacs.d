@@ -4,14 +4,16 @@
                         (getenv "USERPROFILE")
                       (getenv "HOME")))
       (sbcl-bin "sbcl")
+      (clisp-bin "clisp")
       (ccl-bin (if (eq system-type 'windows-nt)
                    "wx86cl64" "ccl")))
   ;; Implementations
   (setq slime-lisp-implementations
         `((sbcl (,sbcl-bin))
-          (ccl (,ccl-bin))
           (sbcl-web (,sbcl-bin "--core" ,(expand-file-name "sbcl-web.core" user-homedir)))
-          (ccl-web (,ccl-bin "--image-name" ,(expand-file-name "ccl-web.core" user-homedir)))))
+          (ccl (,ccl-bin))
+          (ccl-web (,ccl-bin "--image-name" ,(expand-file-name "ccl-web.core" user-homedir)))
+          (clisp (,clisp-bin))))
 
   ;; Slime via quicklisp
   (load (expand-file-name "quicklisp/slime-helper.el"
@@ -107,7 +109,10 @@
                                          (slime 'ccl)))
   (define-key global-map (kbd "C-c 4") (lambda ()
                                          (interactive)
-                                         (slime 'ccl-web))))
+                                         (slime 'ccl-web)))
+  (define-key global-map (kbd "C-c 5") (lambda ()
+                                         (interactive)
+                                         (slime 'clisp))))
 
 (defun gnp-repl-key-bindings ()
   (interactive)
