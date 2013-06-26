@@ -45,6 +45,7 @@
  '(ido-record-commands t)
  '(ido-show-dot-for-dired t)
  '(js-indent-level 2)
+ '(magit-log-show-author-date nil)
  '(minibuffer-prompt-properties (quote (read-only t point-entered minibuffer-avoid-prompt face minibuffer-prompt)))
  '(mm-text-html-renderer nil)
  '(safe-local-variable-values (quote ((Package . CCL) (Syntax . Common-Lisp) (Package . lift) (Package . LIFT) (Package . CL-PPCRE) (Package ITERATE :use "COMMON-LISP" :colon-mode :external) (syntax . COMMON-LISP) (Package . DRAKMA) (Package . CL-WHO) (Syntax . ANSI-Common-Lisp) (Package . HUNCHENTOOT) (Syntax . COMMON-LISP) (Package . CL-USER) (Base . 10))))
